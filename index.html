@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ontario Legal Navigator | Court Drafting, Law Library & Filing Support</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+  <style>
+    :root{--brand:#173f4d;--brand2:#286f83;--gold:#b88435;--mist:#eef8fa;--paper:#fbf6ea;--line:rgba(23,63,77,.16);--muted:#60747c;--ink:#17272e}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#f8fcfd,#fff 45%,#f8f1e5);color:var(--ink)}
+    nav.container-fluid{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(10px);padding:.6rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;gap:.5rem}
+    nav.container-fluid ul{display:flex;flex-wrap:nowrap;align-items:center;gap:.25rem;margin:0;padding:0;list-style:none;white-space:nowrap}
+    nav.container-fluid ul li a{font-size:.82rem;padding:.3rem .55rem;color:var(--brand);text-decoration:none;border-radius:.4rem;white-space:nowrap}
+    nav.container-fluid ul li a:hover{background:var(--mist);color:var(--brand2)}
+    nav.container-fluid ul li a[role="button"]{background:var(--brand);color:#fff;padding:.35rem .7rem;border-radius:.5rem;font-weight:700}
+    nav.container-fluid ul li a[role="button"]:hover{background:var(--brand2)}
+    nav strong,h1,h2,h3,h4{color:var(--brand)}
+    nav strong{font-size:.95rem;white-space:nowrap;color:var(--brand)}
+    .container{max-width:1160px}
+    main.container{padding-top:2rem}
+    .hero h2{font-size:clamp(1.8rem,4vw,3.2rem);line-height:1.1;letter-spacing:-.03em}
+    .lead{font-size:1.08rem;color:#344b54}
+    .tag{display:inline-block;padding:.35rem .8rem;border-radius:999px;background:rgba(184,132,53,.15);color:#76531e;font-weight:800;font-size:.84rem}
+    .notice{margin:1.2rem 0;padding:1rem 1.2rem;border-left:5px solid var(--gold);border-radius:.75rem;background:#fff6e8}
+    .panel{margin-top:1.35rem;padding:1.35rem;border:1px solid var(--line);border-radius:1.1rem;background:rgba(255,255,255,.96);box-shadow:0 18px 50px rgba(23,63,77,.07)}
+    .panel.alt{background:linear-gradient(135deg,#fff,var(--mist))}
+    .panel.gold{background:linear-gradient(135deg,#fff,var(--paper))}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .button-row{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:.8rem}
+    .button-row button,.button-row a{width:auto}
+    .main-btn{font-size:1.08rem;padding:1rem 1.25rem}
+    .secondary{background:#fff!important;color:var(--brand)!important;border:1px solid var(--line)!important}
+    .output{white-space:pre-wrap;min-height:170px;padding:1rem;border:1px solid var(--line);border-radius:.5rem;background:#fff;font-family:Georgia,'Times New Roman',serif;font-size:1rem;line-height:1.55;overflow:auto}
+    .review-output{background:#fbfdff;border-left:5px solid var(--brand2)}
+    textarea{min-height:145px;resize:vertical}
+    textarea,input,select{background:#fff}
+    .source-card{padding:.9rem 1rem;border:1px solid var(--line);border-radius:.75rem;background:#fff;margin-bottom:.75rem}
+    .source-card h4{margin:0 0 .3rem;font-size:.97rem}
+    .source-card p{margin:0 0 .5rem;font-size:.85rem;color:var(--muted)}
+    .source-link{display:inline-block;margin:.2rem .4rem .2rem 0;padding:.3rem .7rem;border-radius:.4rem;background:var(--mist);color:var(--brand2);font-size:.82rem;font-weight:700;text-decoration:none;border:1px solid var(--line)}
+    .source-link:hover{background:var(--brand2);color:#fff}
+    .law-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-top:1rem}
+    .law-card{padding:1rem;border:1px solid var(--line);border-radius:.75rem;background:#fff}
+    .law-card h4{margin:0 0 .4rem;font-size:.95rem;color:var(--brand)}
+    .law-card p{font-size:.82rem;color:var(--muted);margin:0 0 .5rem}
+    .dashboard-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+    .dashboard-card{padding:1rem 1.1rem;border:1px solid var(--line);border-radius:.8rem;background:#fff}
+    .dashboard-card h4{margin:0 0 .4rem;color:var(--brand2);font-size:.97rem}
+    .dashboard-card p{font-size:.88rem;color:var(--muted);margin:0}
+    .headline-strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-top:1.2rem}
+    .headline-strip article{padding:1rem;border:1px solid var(--line);border-radius:.8rem;background:#fff}
+    .headline-strip h4{margin:0 0 .3rem;color:var(--brand2)}
+    .headline-strip p{font-size:.88rem;color:var(--muted);margin:0}
+    .step{display:inline-flex;align-items:center;justify-content:center;width:1.8rem;height:1.8rem;border-radius:50%;background:var(--brand);color:#fff;font-weight:800;font-size:.95rem;margin-right:.5rem}
+    .form-help{margin-top:.75rem;padding:.75rem 1rem;border-radius:.5rem;background:var(--mist);font-size:.9rem;color:var(--brand)}
+    .service-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-bottom:1.2rem}
+    .service-card{padding:1rem;border:1px solid var(--line);border-radius:.8rem;background:#fff}
+    .service-card h4{margin:0 0 .4rem;color:var(--brand2)}
+    .service-card p{font-size:.88rem;color:var(--muted);margin:0}
+    .small{font-size:.9rem;color:var(--muted)}
+
+    /* Practice area selector */
+    .practice-selector{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.2rem 0}
+    .practice-btn{padding:.55rem 1.1rem;border-radius:999px;border:2px solid var(--line);background:#fff;color:var(--brand);font-weight:700;font-size:.9rem;cursor:pointer;transition:all .18s}
+    .practice-btn:hover{border-color:var(--brand2);color:var(--brand2)}
+    .practice-btn.active{background:var(--brand);color:#fff;border-color:var(--brand)}
+    .practice-badge{display:inline-block;padding:.2rem .6rem;border-radius:999px;font-size:.78rem;font-weight:700;margin-left:.4rem;background:rgba(40,111,131,.12);color:var(--brand2)}
+
+    @media(max-width:700px){.grid2,.grid3{grid-template-columns:1fr}}
+
+    /* ── Ask Anything & Chat Widget shared styles ── */
+    .chat-sugg{background:rgba(23,63,77,.08);border:1px solid var(--line);border-radius:999px;padding:.3rem .75rem;font-size:.8rem;cursor:pointer;color:var(--brand);font-weight:600;transition:background .15s}
+    .chat-sugg:hover{background:var(--mist)}
+    #chatBtn{position:fixed;bottom:1.5rem;right:1.5rem;z-index:1000;width:3.2rem;height:3.2rem;border-radius:50%;background:var(--brand);color:#fff;border:none;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 18px rgba(23,63,77,.35);display:flex;align-items:center;justify-content:center;transition:background .2s}
+    #chatBtn:hover{background:var(--brand2)}
+    #chatPanel{position:fixed;bottom:5.2rem;right:1.5rem;z-index:1000;width:360px;max-width:94vw;background:#fff;border:1px solid var(--line);border-radius:1.2rem;box-shadow:0 12px 50px rgba(23,63,77,.18);display:none;flex-direction:column;overflow:hidden}
+    #chatPanel.open{display:flex}
+    #chatHeader{background:var(--brand);color:#fff;padding:.8rem 1rem;display:flex;align-items:center;justify-content:space-between;font-weight:700;font-size:.95rem}
+    #chatHeader span{font-size:.78rem;font-weight:400;opacity:.8;display:block}
+    #chatCloseBtn{background:none;border:none;color:#fff;font-size:1.3rem;cursor:pointer;line-height:1;padding:0}
+    #chatMessages{flex:1;overflow-y:auto;padding:.85rem 1rem;max-height:320px;display:flex;flex-direction:column;gap:.6rem}
+    .chat-msg{padding:.6rem .8rem;border-radius:.8rem;font-size:.88rem;line-height:1.5;max-width:88%}
+    .chat-msg.bot{background:var(--mist);color:var(--ink);align-self:flex-start;border-bottom-left-radius:.2rem}
+    .chat-msg.user{background:var(--brand);color:#fff;align-self:flex-end;border-bottom-right-radius:.2rem}
+    .chat-msg a{color:var(--brand);font-weight:700;text-decoration:underline}
+    .chat-suggestions{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.4rem}
+    #chatInputRow{display:flex;gap:.5rem;padding:.7rem .9rem;border-top:1px solid var(--line);background:#fafcfd}
+    #chatInput{flex:1;border:1px solid var(--line);border-radius:.5rem;padding:.5rem .7rem;font-size:.88rem;background:#fff}
+    #chatSendBtn{background:var(--brand);color:#fff;border:none;border-radius:.5rem;padding:.5rem .85rem;cursor:pointer;font-weight:700;font-size:.88rem}
+    #chatSendBtn:hover{background:var(--brand2)}
+  </style>
+</head>
+<body>
+<nav class="container-fluid">
+  <ul><li><strong>Ontario Legal Navigator</strong></li></ul>
+  <ul>
+    <li><a href="#dashboard">Dashboard</a></li>
+    <li><a href="#practiceArea">Select Practice Area</a></li>
+    <li><a href="#askAnything">Ask Anything</a></li>
+    <li><a href="#lawLibrary">Law Library</a></li>
+    <li><a href="#filingService">Filing/Service</a></li>
+    <li><a href="#start" role="button">Start Drafting</a></li>
+  </ul>
+</nav>
+<main class="container">
+
+<section class="hero">
+  <span class="tag">Dashboard • Law Library • Filing/Service • Smart Court Drafting</span>
+  <hgroup>
+    <h2>Ontario court-preparation drafts for any matter — step by step.</h2>
+    <h3>Estate, Family, Civil, Employment, Landlord & Tenant, and Small Claims. Motions, applications, affidavits, factums, draft orders, CanLII research, and filing support.</h3>
+  </hgroup>
+  <p class="lead">This platform helps self-represented Ontario users in any litigation area explain what happened, organize dates and documents, draft court-form sections, find relevant laws and cases on CanLII, and request administrative filing and service support.</p>
+  <div class="notice"><strong>Self-represented user notice:</strong> This platform provides legal information, document organization, drafting support, public source links (including CanLII), formatting workflow, JSO filing coordination workflow, and process-service workflow support. It does not provide legal advice or court representation. The client remains self-represented and must review and approve documents before filing.</div>
+  <div class="headline-strip">
+    <article><h4>7 Practice Areas</h4><p>Estate, Family, Civil Litigation, Employment, Landlord & Tenant, Small Claims, and Immigration — each with tailored forms, laws, and CanLII searches.</p></article>
+    <article><h4>CanLII-First Research</h4><p>Every practice area links directly to CanLII with pre-built search terms for your specific issue type.</p></article>
+    <article><h4>Smart Drafting</h4><p>Form-based sections for Notice of Motion (Form 37A), Notice of Application (Form 14E), affidavits, factums, and more.</p></article>
+    <article><h4>Filing & Service Support</h4><p>Administrative support for formatting, PDF assembly, JSO filing coordination, and process service.</p></article>
+  </div>
+</section>
+
+<section class="panel alt" id="dashboard">
+  <h3>Dashboard: What This Site Does</h3>
+  <div class="dashboard-grid">
+    <div class="dashboard-card"><h4>1. Choose Your Practice Area</h4><p>Select Estate, Family, Civil, Employment, Landlord & Tenant, Small Claims, or Immigration. The site adjusts forms, laws, and CanLII searches for that area.</p></div>
+    <div class="dashboard-card"><h4>2. Tell the Story</h4><p>Explain what happened in plain English — dates, documents, parties, court orders, relief wanted.</p></div>
+    <div class="dashboard-card"><h4>3. Convert to Court Form Sections</h4><p>The site structures your story into court-form sections: motion is for, grounds, documentary evidence.</p></div>
+    <div class="dashboard-card"><h4>4. Laws, Rules & CanLII Links</h4><p>Relevant Ontario statutes, Rules of Civil Procedure, and direct CanLII searches appear for your practice area and issue.</p></div>
+    <div class="dashboard-card"><h4>5. Clean Draft + Review Draft</h4><p>The clean draft is for Word/PDF formatting. The review draft includes clickable CanLII and e-Laws links for checking.</p></div>
+    <div class="dashboard-card"><h4>6. Filing / Service Options</h4><p>Request administrative document formatting, PDF assembly, JSO filing coordination, process service, or full filing/service support.</p></div>
+  </div>
+</section>
+
+<!-- PRACTICE AREA SELECTOR -->
+<section class="panel gold" id="practiceArea">
+  <h3>Select Your Practice Area</h3>
+  <p class="small">Pick the area that matches your matter — all forms, laws, CanLII searches, and draft templates update instantly.</p>
+
+  <!-- Area buttons -->
+  <div class="practice-selector" style="margin-bottom:.7rem">
+    <button class="practice-btn active" onclick="setPractice('estate')">📋 Estate &amp; Probate</button>
+    <button class="practice-btn" onclick="setPractice('family')">👨‍👩‍👧 Family Law</button>
+    <button class="practice-btn" onclick="setPractice('civil')">⚖️ Civil Litigation</button>
+    <button class="practice-btn" onclick="setPractice('employment')">💼 Employment Law</button>
+    <button class="practice-btn" onclick="setPractice('landlord')">🏠 Landlord &amp; Tenant</button>
+    <button class="practice-btn" onclick="setPractice('smallclaims')">💰 Small Claims</button>
+    <button class="practice-btn" onclick="setPractice('immigration')">🌐 Immigration</button>
+  </div>
+
+  <!-- Selected area action bar — updates on every setPractice() call -->
+  <div id="practiceActionBar" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;background:#fff;border:2px solid var(--brand);border-radius:.85rem;padding:.85rem 1.2rem;margin-bottom:.8rem">
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.18rem">Selected area</div>
+      <div id="actionBarArea" style="font-size:1.12rem;font-weight:800;color:var(--brand)">Estate &amp; Probate</div>
+      <div id="actionBarDesc" style="font-size:.83rem;color:var(--muted);margin-top:.15rem;line-height:1.4"></div>
+    </div>
+    <button id="actionBarStartBtn" onclick="document.getElementById('start').scrollIntoView({behavior:'smooth'})"
+      style="background:var(--brand);color:#fff;border:none;border-radius:.65rem;padding:.75rem 1.6rem;font-size:1.05rem;font-weight:800;cursor:pointer;white-space:nowrap;box-shadow:0 4px 14px rgba(23,63,77,.22);transition:background .18s"
+      onmouseover="this.style.background='var(--brand2)'" onmouseout="this.style.background='var(--brand)'">
+      Start Drafting → </button>
+  </div>
+
+  <div id="practiceDesc" class="form-help" style="display:none"></div>
+  <div id="practiceQuickView" style="margin-top:.85rem"></div>
+</section>
+
+<!-- ASK ANYTHING PANEL -->
+<section class="panel" id="askAnything" style="margin-top:1.35rem">
+  <h3>Ask Anything — Legal Research Assistant</h3>
+  <p class="small">Type any legal question in plain English. Ask about Ontario law, court procedures, caselaw, statutes, forms, rights, or anything else. The assistant will respond and build direct CanLII and e-Laws research links from your question.</p>
+  <div id="askHistory" style="min-height:200px;max-height:440px;overflow-y:auto;padding:.9rem 1rem;border:1px solid var(--line);border-radius:.75rem;background:#fafcfd;display:flex;flex-direction:column;gap:.75rem;margin-bottom:.85rem"></div>
+  <div style="display:flex;gap:.6rem;align-items:flex-end">
+    <textarea id="askInput" placeholder="Type your legal question here and press Ask or hit Enter...  e.g. What can I do if an executor refuses to show me the will?  How long do I have to sue someone in Ontario?  What is the test for wrongful dismissal?" style="min-height:80px;flex:1;resize:vertical;margin:0"></textarea>
+    <button id="askBtn" onclick="askSubmit()" style="height:80px;min-width:80px;font-size:1rem;font-weight:700;padding:.5rem 1rem">Ask</button>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.65rem">
+    <span style="font-size:.82rem;color:var(--muted);align-self:center">Try:</span>
+    <button class="chat-sugg" onclick="askQuick('What is fiduciary duty in an estate matter?')">Fiduciary duty in an estate</button>
+    <button class="chat-sugg" onclick="askQuick('How do I search for caselaw on CanLII?')">How to search CanLII</button>
+    <button class="chat-sugg" onclick="askQuick('What notice is required for wrongful dismissal in Ontario?')">Wrongful dismissal notice</button>
+    <button class="chat-sugg" onclick="askQuick('What forms do I need for a motion in Ontario court?')">Forms for a motion</button>
+    <button class="chat-sugg" onclick="askQuick('What is the limitation period to sue in Ontario?')">Limitation period to sue</button>
+    <button class="chat-sugg" onclick="askQuick('How do I evict a tenant in Ontario?')">Evict a tenant</button>
+  </div>
+</section>
+
+<!-- STEP 1: MATTER BASICS -->
+<section class="panel gold" id="start">
+  <h3><span class="step">1</span>Start: Matter Basics <span id="practiceBadge" class="practice-badge">Estate &amp; Probate</span></h3>
+  <div class="grid2">
+    <label>Document you want to start with
+      <select id="docType" onchange="showFormHelp()"></select>
+    </label>
+    <label>New filing or existing file?
+      <select id="filingStatus">
+        <option>New filing — no court file number yet</option>
+        <option>Existing court file — file number known</option>
+        <option>Not sure — I need help</option>
+      </select>
+    </label>
+    <label>Court file number, if any
+      <input id="courtFile" placeholder="Leave blank if new filing">
+    </label>
+    <label>Court location
+      <input id="courtLocation" placeholder="Toronto, Brampton, Ottawa, Hamilton...">
+    </label>
+    <label>Moving party / Applicant / Claimant
+      <input id="applicant" placeholder="Name">
+    </label>
+    <label>Respondent(s) / Defendant(s)
+      <input id="respondents" placeholder="Name(s)">
+    </label>
+  </div>
+  <div id="formHelp" class="form-help"></div>
+  <label>What happened?
+    <textarea id="story" placeholder="Write naturally. Describe the events, who did what, what was refused, what orders exist, what you want the court to do..."></textarea>
+  </label>
+  <div class="grid2">
+    <label>Important dates
+      <textarea id="dates" placeholder="Dates of requests, refusals, court orders, deadlines, hearings..."></textarea>
+    </label>
+    <label>Documents you have
+      <textarea id="docs" placeholder="List what you have: contracts, emails, orders, records, letters, etc."></textarea>
+    </label>
+  </div>
+  <label>Extra instructions or notes
+    <textarea id="extra" style="min-height:80px" placeholder="Anything else the drafter should know..."></textarea>
+  </label>
+  <div class="button-row">
+    <button class="main-btn" onclick="analyzeAndSuggest()">Convert Issue to Draft Sections + Source Links</button>
+    <button class="secondary" onclick="rewriteRoughSections()">Clean Up Language</button>
+    <button class="secondary" onclick="clearAll()">Clear All</button>
+  </div>
+</section>
+
+<!-- STEP 2: FORM-BASED DRAFTING -->
+<section class="panel alt" id="builder">
+  <h3><span class="step">2</span>Form-Based Drafting Area</h3>
+  <p class="small">These sections come from the court-form structure. Answer in plain English. Use the rewrite button if the wording needs cleanup.</p>
+
+  <div id="motionFields">
+    <h4>Notice of Motion - Form 37A Sections</h4>
+    <label>THE MOTION IS FOR: What exact order do you want?
+      <textarea id="motionFor" placeholder="Example: an order requiring the respondent to..."></textarea>
+    </label>
+    <label>THE GROUNDS FOR THE MOTION ARE: Why should the court make that order?
+      <textarea id="motionGrounds" placeholder="Example: the respondent has failed to..."></textarea>
+    </label>
+    <label>THE FOLLOWING DOCUMENTARY EVIDENCE will be used: What affidavits/exhibits/documents support it?
+      <textarea id="motionEvidence" placeholder="Example: affidavit of [name], emails, court orders, records..."></textarea>
+    </label>
+  </div>
+
+  <div id="applicationFields" style="display:none">
+    <h4>Notice of Application - Form 14E Sections</h4>
+    <label>1. The applicant makes application for: What relief is claimed?
+      <textarea id="appRelief" placeholder="Example: an order for accounting, disclosure, directions, compliance..."></textarea>
+    </label>
+    <label>2. The grounds for the application are: Why should the court grant it?
+      <textarea id="appGrounds" placeholder="Example: the respondent has failed to..."></textarea>
+    </label>
+    <label>3. Documentary evidence: What affidavits or documents will be used?
+      <textarea id="appEvidence" placeholder="Example: affidavit, contracts, orders, records, correspondence..."></textarea>
+    </label>
+  </div>
+
+  <div id="claimFields" style="display:none">
+    <h4>Statement of Claim / Small Claims Plaintiff's Claim Sections</h4>
+    <label>CLAIM: What are you claiming and how much?
+      <textarea id="claimRelief" placeholder="Example: damages of $X for breach of contract, wrongful dismissal, unpaid wages..."></textarea>
+    </label>
+    <label>MATERIAL FACTS: What happened?
+      <textarea id="claimFacts" placeholder="Example: on [date], the defendant failed to... causing loss of..."></textarea>
+    </label>
+    <label>LEGAL BASIS: What law supports your claim?
+      <textarea id="claimLaw" placeholder="Example: breach of contract, negligence, Employment Standards Act, Human Rights Code..."></textarea>
+    </label>
+  </div>
+
+  <div class="button-row">
+    <button onclick="generateDrafts()">Generate / Refresh Draft</button>
+    <button class="secondary" onclick="rewriteRoughSections()">Clean Up Language</button>
+  </div>
+</section>
+
+<!-- STEP 3: SOURCE LINKS -->
+<section class="panel" id="sourceLinks">
+  <h3><span class="step">3</span>Rules, Laws, Forms & CanLII Links for This Draft</h3>
+  <p class="small">These links appear when the issue is converted. Use them to verify the law before filing. They are for checking only — not inserted into the clean draft.</p>
+  <div id="sourcesOutput">Source links will appear here after you click "Convert Issue to Draft Sections + Source Links."</div>
+</section>
+
+<!-- STEP 4: DRAFT OUTPUTS -->
+<section class="panel gold" id="drafts">
+  <h3><span class="step">4</span>Draft Outputs</h3>
+  <h4>Clean Draft for Word/PDF Formatting</h4>
+  <div id="cleanDraft" class="output">Clean draft will appear here. This version does not include source links or website warnings inside the document.</div>
+  <div class="button-row" style="margin-top:.5rem">
+    <button class="secondary" onclick="copyText('cleanDraft')">Copy Clean Draft</button>
+    <button class="secondary" onclick="downloadText('cleanDraft','clean-draft.txt')">Download Clean Draft</button>
+  </div>
+  <h4 style="margin-top:1.5rem">Internal Review Draft with Clickable CanLII & Source Links</h4>
+  <div id="reviewDraft" class="output review-output">Review draft with source links will appear here. This version is not for filing.</div>
+  <div class="button-row" style="margin-top:.5rem">
+    <button class="secondary" onclick="downloadReviewHtml()">Download Review Draft (HTML)</button>
+  </div>
+</section>
+
+<!-- LAW LIBRARY -->
+<section class="panel alt" id="lawLibrary">
+  <h3>Ontario Legal Source Library with Smart Search <span id="libraryBadge" class="practice-badge">Estate &amp; Probate</span></h3>
+  <p class="small">Search for Ontario laws, rules, court forms, and CanLII cases. Results are tailored to your selected practice area. Type a plain-English issue and click a source button.</p>
+  <div class="grid2">
+    <label>Plain-English legal search
+      <input id="manualSearch" placeholder="Example: executor has not provided bank records or accounting">
+    </label>
+    <label>Search focus
+      <select id="manualFocus"></select>
+    </label>
+  </div>
+  <div class="button-row">
+    <button onclick="manualSearch('canlii')">Search CanLII</button>
+    <button class="secondary" onclick="manualSearch('elaws')">Ontario e-Laws</button>
+    <button class="secondary" onclick="manualSearch('forms')">Court Forms</button>
+    <button class="secondary" onclick="manualSearch('google')">Trusted Google Search</button>
+    <button class="secondary" onclick="renderLawLibrary()">Refresh Library</button>
+  </div>
+  <div id="lawGrid" class="law-grid"></div>
+</section>
+
+<!-- FILING / SERVICE -->
+<section class="panel" id="filingService">
+  <h3>Filing/Service Support</h3>
+  <p>After a draft is created, you can do it yourself or request administrative support below.</p>
+  <div class="service-grid">
+    <div class="service-card"><h4>Document Cleanup & Formatting</h4><p>Word formatting, headings, grammar cleanup, exhibit references, and clean PDF preparation.</p></div>
+    <div class="service-card"><h4>PDF Court Package Assembly</h4><p>Motion/application records, tables of contents, tabs, affidavits, exhibits, draft orders, and PDF organization.</p></div>
+    <div class="service-card"><h4>JSO Filing Coordination</h4><p>Manual JSO filing coordination after client review and authorization. The site does not automatically file.</p></div>
+    <div class="service-card"><h4>Process Service Coordination</h4><p>Arrange service, track service, and organize proof/affidavit-of-service information.</p></div>
+  </div>
+  <div class="grid2">
+    <label>What help do you want?
+      <select id="supportOption">
+        <option>I will do it myself</option>
+        <option>Document cleanup and formatting</option>
+        <option>PDF court package assembly</option>
+        <option>JSO filing support</option>
+        <option>Process service coordination</option>
+        <option>Full filing + service support</option>
+      </select>
+    </label>
+    <label>Urgent deadline
+      <input id="deadline" placeholder="Date or unknown">
+    </label>
+  </div>
+  <div class="grid2">
+    <label>Who must be served?
+      <textarea id="serveWho" placeholder="Names and roles"></textarea>
+    </label>
+    <label>Service address or notes
+      <textarea id="serviceAddress" placeholder="Address, email if permitted, unknown, etc."></textarea>
+    </label>
+  </div>
+  <div class="button-row">
+    <button onclick="generateSupportRequest()">Create Filing/Service Support Request</button>
+    <button class="secondary" onclick="generateAuthorization()">Create Authorization Letter</button>
+    <button class="secondary" onclick="copyText('supportOutput')">Copy</button>
+    <button class="secondary" onclick="downloadText('supportOutput','support-request.txt')">Download</button>
+  </div>
+  <div id="supportOutput" class="output" style="margin-top:1rem">Support request will appear here.</div>
+</section>
+
+</main>
+<footer class="container" style="margin-top:2rem;padding-bottom:2rem">
+  <small><a href="#">Privacy</a> • <a href="#">Terms & Scope of Service</a> • <a href="#">Self-Represented User Notice</a></small>
+</footer>
+
+<script>
+// ─── PRACTICE AREA DATA ──────────────────────────────────────────────────────
+
+const PRACTICES = {
+  estate: {
+    label: 'Estate & Probate',
+    desc: 'For matters involving wills, estate trustees (executors), POA (power of attorney), passing of accounts, estate accounting, beneficiary disputes, and probate applications in Ontario.',
+    docTypes: [
+      {value:'motion', label:'Notice of Motion - Form 37A'},
+      {value:'application', label:'Notice of Application - Form 14E'},
+      {value:'affidavit', label:'Affidavit'},
+      {value:'motionRecord', label:'Motion Record Table of Contents'},
+      {value:'applicationRecord', label:'Application Record Table of Contents'},
+      {value:'factum', label:'Factum Outline'},
+      {value:'draftOrder', label:'Draft Order'},
+      {value:'letter', label:'Disclosure / Accounting Letter'},
+    ],
+    searchFocuses: [
+      'Estate trustee accounting / disclosure',
+      'POA accounting / Substitute Decisions Act',
+      'Rules of Civil Procedure / Rule 74',
+      'Notice of Motion / Form 37A',
+      'Notice of Application / Form 14E',
+      'Will challenge / capacity / undue influence',
+      'Passing of accounts / surcharge',
+      'Fiduciary misconduct / breach of fiduciary duty',
+      'Filing, service, practice directions',
+    ],
+    laws: [
+      {name:'Estates Act', terms:'Estates Act Ontario probate certificate appointment estate trustee'},
+      {name:'Substitute Decisions Act, 1992', terms:'Substitute Decisions Act Ontario power of attorney accounting fiduciary duty'},
+      {name:'Succession Law Reform Act', terms:'Succession Law Reform Act Ontario wills capacity undue influence dependant support'},
+      {name:'Trustee Act / estate trustee duties', terms:'Ontario estate trustee accounting disclosure fiduciary duty passing of accounts Trustee Act'},
+      {name:'CanLII — Ontario estate & fiduciary cases', terms:'Ontario estate trustee breach fiduciary duty passing of accounts accounting disclosure CanLII'},
+      {name:'Rules of Civil Procedure / Rule 74', terms:'Ontario Rules of Civil Procedure Rule 74 estates motions applications affidavits service filing'},
+      {name:'Ontario Court Forms - Form 37A / Form 14E', terms:'Ontario court forms Form 37A notice of motion Form 14E notice of application'},
+      {name:'Superior Court estate practice directions', terms:'Ontario Superior Court estate practice directions motion application filing service'},
+      {name:'Limitations Act, 2002', terms:'Limitations Act 2002 Ontario estate litigation limitation period'},
+    ],
+    keywordMap: [
+      {re:/poa|power of attorney|attorney/i, key:'Substitute Decisions Act, 1992'},
+      {re:/executor|estate trustee|trustee|accounting|bank|records|passing/i, key:'Trustee Act / estate trustee duties'},
+      {re:/estate|probate|certificate/i, key:'Estates Act'},
+      {re:/will|capacity|undue|influence|dependant|support/i, key:'Succession Law Reform Act'},
+    ]
+  },
+
+  family: {
+    label: 'Family Law',
+    desc: 'For matters involving divorce, separation, child custody and access, child support, spousal support, property division, restraining orders, and family court applications in Ontario.',
+    docTypes: [
+      {value:'motion', label:'Notice of Motion - Form 14B (Family)'},
+      {value:'application', label:'Application - Form 8 (Family)'},
+      {value:'affidavit', label:'Affidavit (General)'},
+      {value:'claimForm', label:'Form 8A — Application (Divorce)'},
+      {value:'motionRecord', label:'Motion Record / Continuing Record'},
+      {value:'factum', label:'Factum Outline'},
+      {value:'draftOrder', label:'Draft Order / Consent Order'},
+      {value:'letter', label:'Demand / Disclosure Letter'},
+    ],
+    searchFocuses: [
+      'Child custody and access',
+      'Child support (Federal Child Support Guidelines)',
+      'Spousal support (SSAG)',
+      'Division of property / equalization',
+      'Restraining order / safety concerns',
+      'Divorce application / separation',
+      'Parenting plan',
+      'Disclosure and financial statements',
+      'Family Law Act Ontario',
+    ],
+    laws: [
+      {name:'Family Law Act, R.S.O. 1990', terms:'Family Law Act Ontario equalization net family property spousal support'},
+      {name:'Children\'s Law Reform Act', terms:'Children\'s Law Reform Act Ontario custody access best interests child'},
+      {name:'Divorce Act (Federal)', terms:'Divorce Act Canada custody access child support spousal support'},
+      {name:'Child Support Guidelines (Federal)', terms:'Federal Child Support Guidelines Ontario table amount income'},
+      {name:'Spousal Support Advisory Guidelines (SSAG)', terms:'Spousal Support Advisory Guidelines Ontario amount duration entitlement'},
+      {name:'CanLII — Ontario family law cases', terms:'Ontario family law custody access support equalization divorce CanLII'},
+      {name:'Family Law Rules (O. Reg. 114/99)', terms:'Ontario Family Law Rules Form 8 application motion financial statement'},
+      {name:'Ontario Court Forms — Family', terms:'Ontario family court forms Form 8 Form 14B Form 13 financial statement'},
+      {name:'Limitations Act, 2002', terms:'Limitations Act 2002 Ontario family property claim limitation period'},
+    ],
+    keywordMap: [
+      {re:/child|custody|access|parenting/i, key:'Children\'s Law Reform Act'},
+      {re:/support|maintenance/i, key:'Child Support Guidelines (Federal)'},
+      {re:/spousal|alimony/i, key:'Spousal Support Advisory Guidelines (SSAG)'},
+      {re:/property|equalization|net family/i, key:'Family Law Act, R.S.O. 1990'},
+      {re:/divorce/i, key:'Divorce Act (Federal)'},
+    ]
+  },
+
+  civil: {
+    label: 'Civil Litigation',
+    desc: 'For matters involving breach of contract, negligence, property disputes, debt recovery, unjust enrichment, defamation, injunctions, and other civil claims in Ontario Superior Court.',
+    docTypes: [
+      {value:'motion', label:'Notice of Motion - Form 37A'},
+      {value:'application', label:'Notice of Application - Form 14E'},
+      {value:'claim', label:'Statement of Claim - Form 14A'},
+      {value:'affidavit', label:'Affidavit'},
+      {value:'motionRecord', label:'Motion Record Table of Contents'},
+      {value:'factum', label:'Factum Outline'},
+      {value:'draftOrder', label:'Draft Order'},
+      {value:'letter', label:'Demand Letter'},
+    ],
+    searchFocuses: [
+      'Breach of contract',
+      'Negligence / duty of care',
+      'Unjust enrichment',
+      'Property dispute / trespass',
+      'Defamation / libel / slander',
+      'Injunction / interlocutory relief',
+      'Debt recovery / judgment enforcement',
+      'Limitation periods',
+      'Summary judgment',
+    ],
+    laws: [
+      {name:'Rules of Civil Procedure (R.R.O. 1990)', terms:'Ontario Rules of Civil Procedure motion application pleadings discovery trial'},
+      {name:'Courts of Justice Act', terms:'Courts of Justice Act Ontario jurisdiction civil Superior Court'},
+      {name:'Limitations Act, 2002', terms:'Limitations Act 2002 Ontario two year limitation period discovery'},
+      {name:'CanLII — Ontario civil litigation cases', terms:'Ontario breach of contract negligence civil litigation Superior Court CanLII'},
+      {name:'Negligence Act', terms:'Negligence Act Ontario contributory negligence apportionment liability'},
+      {name:'Ontario Court Forms — Civil', terms:'Ontario court forms Form 14A statement of claim Form 37A notice of motion civil'},
+      {name:'Libel and Slander Act', terms:'Libel Slander Act Ontario defamation notice limitation period'},
+      {name:'Judicature Act / prejudgment interest', terms:'Ontario Courts of Justice Act prejudgment interest rate civil judgment'},
+    ],
+    keywordMap: [
+      {re:/contract|breach|agreement/i, key:'Rules of Civil Procedure (R.R.O. 1990)'},
+      {re:/negligence|duty of care|tort/i, key:'Negligence Act'},
+      {re:/defam|libel|slander/i, key:'Libel and Slander Act'},
+      {re:/limitation|time limit|deadline/i, key:'Limitations Act, 2002'},
+    ]
+  },
+
+  employment: {
+    label: 'Employment Law',
+    desc: 'For matters involving wrongful dismissal, constructive dismissal, termination pay, human rights complaints, harassment, ESA violations, and employment-related litigation in Ontario.',
+    docTypes: [
+      {value:'motion', label:'Notice of Motion - Form 37A'},
+      {value:'claim', label:'Statement of Claim (Wrongful Dismissal)'},
+      {value:'affidavit', label:'Affidavit'},
+      {value:'esaComplaint', label:'ESA Complaint / MOL Claim Summary'},
+      {value:'hrComplaint', label:'HRTO Application Summary'},
+      {value:'motionRecord', label:'Motion Record Table of Contents'},
+      {value:'factum', label:'Factum Outline'},
+      {value:'letter', label:'Demand Letter (Termination Pay / Notice)'},
+    ],
+    searchFocuses: [
+      'Wrongful dismissal / reasonable notice',
+      'Constructive dismissal',
+      'Employment Standards Act — termination pay',
+      'Employment Standards Act — severance pay',
+      'Human Rights Code — discrimination / harassment',
+      'Just cause for dismissal',
+      'Employment contract / restrictive covenants',
+      'Mitigation of damages',
+      'HRTO application',
+    ],
+    laws: [
+      {name:'Employment Standards Act, 2000 (ESA)', terms:'Employment Standards Act 2000 Ontario termination pay severance notice minimum standards'},
+      {name:'Human Rights Code (Ontario)', terms:'Human Rights Code Ontario discrimination harassment employment protected grounds HRTO'},
+      {name:'CanLII — Ontario wrongful dismissal cases', terms:'Ontario wrongful dismissal constructive dismissal reasonable notice just cause CanLII'},
+      {name:'CanLII — Ontario HRTO decisions', terms:'Ontario Human Rights Tribunal HRTO discrimination harassment employment CanLII'},
+      {name:'Rules of Civil Procedure — employment claims', terms:'Ontario Rules of Civil Procedure wrongful dismissal statement of claim motion'},
+      {name:'Limitations Act, 2002', terms:'Limitations Act 2002 Ontario employment claim limitation period two years'},
+      {name:'Occupational Health and Safety Act', terms:'Occupational Health Safety Act Ontario workplace harassment violence reprisal'},
+      {name:'Ontario Court Forms — Civil / Employment', terms:'Ontario court forms statement of claim Form 14A civil employment wrongful dismissal'},
+    ],
+    keywordMap: [
+      {re:/wrongful|dismissal|termination|fired|fired/i, key:'CanLII — Ontario wrongful dismissal cases'},
+      {re:/constructive/i, key:'CanLII — Ontario wrongful dismissal cases'},
+      {re:/esa|employment standard|minimum|severance|termination pay/i, key:'Employment Standards Act, 2000 (ESA)'},
+      {re:/human rights|discriminat|harass|hrto/i, key:'Human Rights Code (Ontario)'},
+      {re:/health and safety|violence|reprisal/i, key:'Occupational Health and Safety Act'},
+    ]
+  },
+
+  landlord: {
+    label: 'Landlord & Tenant',
+    desc: 'For matters involving eviction applications, rent arrears, maintenance issues, illegal entry, harassment, Above Guideline Increases (AGI), and Landlord and Tenant Board (LTB) proceedings in Ontario.',
+    docTypes: [
+      {value:'motion', label:'Notice of Motion (LTB Review / Divisional Court)'},
+      {value:'ltbApplication', label:'LTB Application Summary (L1/L2/T2/T6 etc.)'},
+      {value:'affidavit', label:'Affidavit'},
+      {value:'letter', label:'Demand / Notice Letter to Landlord or Tenant'},
+      {value:'motionRecord', label:'Motion Record Table of Contents'},
+      {value:'factum', label:'Factum Outline'},
+      {value:'draftOrder', label:'Draft Order / Consent Order'},
+    ],
+    searchFocuses: [
+      'Eviction for non-payment of rent (L1)',
+      'Eviction for cause (L2)',
+      'Tenant application — maintenance / repairs (T6)',
+      'Tenant application — harassment / illegal entry (T2)',
+      'Above Guideline Increase (AGI / L5)',
+      'Rent increase / rent control',
+      'LTB hearing procedure and rules',
+      'Residential Tenancies Act Ontario',
+      'Review of LTB order / Divisional Court appeal',
+    ],
+    laws: [
+      {name:'Residential Tenancies Act, 2006', terms:'Residential Tenancies Act 2006 Ontario eviction rent arrears maintenance landlord tenant'},
+      {name:'CanLII — Ontario LTB decisions', terms:'Ontario Landlord Tenant Board LTB eviction maintenance rent arrears CanLII'},
+      {name:'CanLII — Ontario Divisional Court tenancy', terms:'Ontario Divisional Court residential tenancy appeal review CanLII'},
+      {name:'LTB Rules of Practice', terms:'Landlord Tenant Board Ontario rules of practice hearing procedure evidence'},
+      {name:'Ontario Court Forms — LTB', terms:'Ontario Landlord Tenant Board forms L1 L2 T2 T6 application eviction'},
+      {name:'Human Rights Code — housing', terms:'Human Rights Code Ontario housing discrimination landlord tenant protected grounds'},
+      {name:'Limitations Act, 2002', terms:'Limitations Act 2002 Ontario tenancy claim limitation period'},
+    ],
+    keywordMap: [
+      {re:/rent|arrears|non.payment/i, key:'Residential Tenancies Act, 2006'},
+      {re:/maintenance|repair|disrepair/i, key:'Residential Tenancies Act, 2006'},
+      {re:/harass|illegal entry|interference/i, key:'CanLII — Ontario LTB decisions'},
+      {re:/agi|above guideline/i, key:'Residential Tenancies Act, 2006'},
+      {re:/appeal|divisional court|review/i, key:'CanLII — Ontario Divisional Court tenancy'},
+    ]
+  },
+
+  smallclaims: {
+    label: 'Small Claims',
+    desc: 'For claims up to $35,000 in Ontario Small Claims Court — debt recovery, property damage, unpaid services, breach of contract, deposits, and other monetary disputes.',
+    docTypes: [
+      {value:'claim', label:"Plaintiff's Claim - Form 7A"},
+      {value:'defence', label:"Defence - Form 9A"},
+      {value:'affidavit', label:'Affidavit'},
+      {value:'motion', label:'Notice of Motion (Small Claims)'},
+      {value:'letter', label:'Demand Letter'},
+      {value:'draftOrder', label:'Draft Consent / Default Judgment'},
+    ],
+    searchFocuses: [
+      'Breach of contract (small claims)',
+      'Unpaid debt / invoices',
+      'Property damage claim',
+      'Security deposit dispute',
+      'Unpaid services / contractor dispute',
+      'Consumer protection claim',
+      'Default judgment procedure',
+      'Enforcement of judgment (garnishment / writ)',
+      'Small Claims Court Rules Ontario',
+    ],
+    laws: [
+      {name:"Small Claims Court Rules (O. Reg. 258/98)", terms:"Ontario Small Claims Court Rules Form 7A plaintiff's claim defence procedure"},
+      {name:'Courts of Justice Act — Small Claims', terms:'Courts of Justice Act Ontario Small Claims Court jurisdiction monetary limit $35000'},
+      {name:'CanLII — Ontario Small Claims decisions', terms:'Ontario Small Claims Court breach of contract debt damages CanLII'},
+      {name:'Consumer Protection Act, 2002', terms:'Consumer Protection Act 2002 Ontario unfair practice warranty cancellation'},
+      {name:'Limitations Act, 2002', terms:'Limitations Act 2002 Ontario two year limitation period small claims debt contract'},
+      {name:'Ontario Court Forms — Small Claims', terms:"Ontario Small Claims Court forms Form 7A plaintiff's claim Form 9A defence"},
+      {name:'Collection and Debt Settlement Services Act', terms:'Collection Debt Settlement Services Act Ontario debt collection rules'},
+    ],
+    keywordMap: [
+      {re:/debt|unpaid|invoice|owe/i, key:'CanLII — Ontario Small Claims decisions'},
+      {re:/contract|breach|agreement/i, key:'CanLII — Ontario Small Claims decisions'},
+      {re:/damage|property|repair/i, key:'CanLII — Ontario Small Claims decisions'},
+      {re:/consumer|warranty|refund/i, key:'Consumer Protection Act, 2002'},
+      {re:/limitation|time|deadline/i, key:'Limitations Act, 2002'},
+    ]
+  },
+
+  immigration: {
+    label: 'Immigration',
+    desc: 'For matters involving Canadian immigration and refugee law — permanent residence, temporary residence (work/study/visitor permits), Express Entry, sponsorship, refugee protection, IRCC applications, IAD/RAD appeals, Federal Court judicial reviews, and inadmissibility.',
+    docTypes: [
+      {value:'immLetter',    label:'Cover Letter — IRCC Application'},
+      {value:'immSoF',       label:'Statement of Facts — Refugee Claim (Basis of Claim)'},
+      {value:'immAppeal',    label:'IAD / RAD Appeal Outline'},
+      {value:'immJR',        label:'Federal Court Judicial Review — Leave Application'},
+      {value:'immResponse',  label:'Response to Procedural Fairness Letter (GCMS Letter)'},
+      {value:'immSponsor',   label:'Sponsorship Application Summary (Family Class)'},
+      {value:'immHC',        label:'Humanitarian & Compassionate (H&C) Application — s.25 IRPA'},
+      {value:'affidavit',    label:'Affidavit'},
+      {value:'letter',       label:'Demand / Explanation Letter to IRCC'},
+    ],
+    searchFocuses: [
+      'Permanent residence — Express Entry / CEC / FSW / FST',
+      'Spousal/partner sponsorship (inland & outboard)',
+      'Refugee protection — s.96 / s.97 IRPA',
+      'Humanitarian & Compassionate application — s.25 IRPA',
+      'Temporary residence — work permit / PGWP / LMIA',
+      'Temporary residence — study permit',
+      'Temporary residence — visitor visa / TRV',
+      'Inadmissibility — criminality / misrepresentation',
+      'Removal order / Pre-Removal Risk Assessment (PRRA)',
+      'IAD appeal — sponsorship refusal / removal order',
+      'RAD appeal — refugee claim',
+      'Federal Court judicial review — leave application',
+      'Procedural fairness letter response (GCMS notes)',
+      'IRCC processing delays — mandamus / writ',
+    ],
+    laws: [
+      {name:'Immigration and Refugee Protection Act (IRPA)', terms:'Immigration Refugee Protection Act IRPA Canada permanent residence sponsorship refugee inadmissibility'},
+      {name:'Immigration and Refugee Protection Regulations (IRPR)', terms:'IRPR Immigration Refugee Protection Regulations Canada Express Entry CEC FSW points requirements'},
+      {name:'Refugee Protection — s.96 Convention Refugee / s.97 Person in Need of Protection', terms:'IRPA section 96 Convention refugee section 97 person need protection RPD refugee claim'},
+      {name:'Humanitarian & Compassionate — s.25 IRPA', terms:'humanitarian compassionate H&C section 25 IRPA best interests child hardship establishment'},
+      {name:'Family Class Sponsorship — s.117 IRPR', terms:'family class sponsorship spouse common-law partner parent grandparent IRPR section 117 IRPA'},
+      {name:'Express Entry — CRS / Federal Skilled Worker', terms:'Express Entry Comprehensive Ranking System CRS Federal Skilled Worker Canadian Experience Class points ITA invitation'},
+      {name:'Temporary Foreign Worker / Work Permits (LMIA)', terms:'work permit LMIA Labour Market Impact Assessment PGWP post-graduation work permit open work permit CUSMA'},
+      {name:'Inadmissibility — s.36 Criminality / s.40 Misrepresentation', terms:'inadmissibility section 36 criminality section 40 misrepresentation IRPA'},
+      {name:'IAD — Immigration Appeal Division Rules', terms:'Immigration Appeal Division IAD rules sponsorship appeal removal order appeal humanitarian relief'},
+      {name:'RAD — Refugee Appeal Division Rules', terms:'Refugee Appeal Division RAD appeal rules RPD decision new evidence'},
+      {name:'Federal Court — Judicial Review (IRPA s.72)', terms:'Federal Court judicial review immigration IRPA section 72 leave application reasonableness standard'},
+      {name:'CanLII — Immigration / Refugee Board decisions', terms:'Immigration Refugee Board IRB RPD RAD IAD ID Canada refugee sponsorship removal CanLII'},
+    ],
+    keywordMap: [
+      {re:/refugee|asylum|rpd|claim|convention/i, key:'Refugee Protection — s.96 Convention Refugee / s.97 Person in Need of Protection'},
+      {re:/sponsor|sponsorship|family class|spouse|partner|parent/i, key:'Family Class Sponsorship — s.117 IRPR'},
+      {re:/express entry|crs|fsw|cec|fst|skilled worker|canadian experience/i, key:'Express Entry — CRS / Federal Skilled Worker'},
+      {re:/work permit|lmia|pgwp|open work|cusma|post.grad/i, key:'Temporary Foreign Worker / Work Permits (LMIA)'},
+      {re:/inadmiss|criminal|misrepresent|section 36|section 40/i, key:'Inadmissibility — s.36 Criminality / s.40 Misrepresentation'},
+      {re:/iad|iad appeal|removal order appeal|sponsorship appeal/i, key:'IAD — Immigration Appeal Division Rules'},
+      {re:/rad|refugee appeal|rpd decision/i, key:'RAD — Refugee Appeal Division Rules'},
+      {re:/federal court|judicial review|leave|mandamus/i, key:'Federal Court — Judicial Review (IRPA s.72)'},
+      {re:/h&c|humanitarian|compassionate|section 25/i, key:'Humanitarian & Compassionate — s.25 IRPA'},
+    ]
+  }
+};
+
+// ─── STATE ───────────────────────────────────────────────────────────────────
+let currentPractice = 'estate';
+let currentSources = [];
+
+// ─── HELPERS ─────────────────────────────────────────────────────────────────
+function val(id){return(document.getElementById(id)?.value||'').trim()}
+function enc(s){return encodeURIComponent(s)}
+function canliiUrl(t){return 'https://www.canlii.org/en/#search/text='+enc(t)}
+function elawsUrl(t){return 'https://www.google.com/search?q='+enc(t+' site:ontario.ca/laws')}
+function formsUrl(t){return 'https://www.google.com/search?q='+enc(t+' site:ontariocourtforms.on.ca Ontario court forms')}
+function googleUrl(t){return 'https://www.google.com/search?q='+enc(t+' site:ontario.ca/laws OR site:canlii.org OR site:lso.ca OR site:ontariocourts.ca OR site:ontariocourtforms.on.ca')}
+
+// ─── PRACTICE AREA SWITCH ────────────────────────────────────────────────────
+function setPractice(key){
+  currentPractice = key;
+  const p = PRACTICES[key];
+
+  // Update active button
+  document.querySelectorAll('.practice-btn').forEach(b=>{
+    b.classList.toggle('active', b.getAttribute('onclick').includes("'"+key+"'"));
+  });
+
+  // Update badges
+  document.getElementById('practiceBadge').textContent = p.label;
+  document.getElementById('libraryBadge').textContent = p.label;
+
+  // Update action bar
+  document.getElementById('actionBarArea').textContent = p.label;
+  document.getElementById('actionBarDesc').textContent = p.desc;
+  document.getElementById('actionBarStartBtn').textContent = 'Start Drafting — ' + p.label + ' →';
+
+  // Update description (hidden — now shown in action bar)
+  document.getElementById('practiceDesc').textContent = p.desc;
+
+  // Update doc type dropdown
+  const docSel = document.getElementById('docType');
+  docSel.innerHTML = p.docTypes.map(d=>`<option value="${d.value}">${d.label}</option>`).join('');
+  showFormHelp();
+
+  // Update search focus dropdown
+  const focusSel = document.getElementById('manualFocus');
+  focusSel.innerHTML = p.searchFocuses.map(f=>`<option>${f}</option>`).join('');
+
+  // Update story placeholder
+  const placeholders = {
+    estate: 'Write naturally. Example: The estate trustee has not provided bank records or accounting. There is a court order requiring documents. There was a POA before death...',
+    family: 'Write naturally. Example: We separated in [month/year]. There are two children. The other party refuses to disclose income. I need a custody and support order...',
+    civil: 'Write naturally. Example: The defendant signed a contract and failed to perform. I have emails showing the agreement. My damages are approximately $...',
+    employment: 'Write naturally. Example: I was terminated without cause on [date] after [X] years of service. I was given [X] weeks notice pay. I believe I am entitled to more...',
+    landlord: 'Write naturally. Example: The tenant has not paid rent since [month]. I have sent notices. I want to file with the LTB for eviction and rent arrears...',
+    smallclaims: 'Write naturally. Example: The defendant owes me $[amount] for [unpaid services / property damage / breach of contract]. I have invoices and emails showing the agreement...',
+    immigration: 'Write naturally. Example: I applied for permanent residence through Express Entry on [date]. My application was refused on [date] citing [reason]. I want to [appeal / apply for H&C / seek judicial review]. I have lived in Canada for [X] years and have [family / job / ties]...',
+  };
+  document.getElementById('story').placeholder = placeholders[key] || 'Write naturally. Describe what happened...';
+
+  // Update quick-view panel — show forms + focuses right under the buttons
+  const qv = document.getElementById('practiceQuickView');
+  qv.innerHTML = `
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem">
+      <div style="background:#fff;border:1px solid var(--line);border-radius:.7rem;padding:.8rem 1rem">
+        <div style="font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--brand2);margin-bottom:.5rem">Available Document Types</div>
+        ${p.docTypes.map(d=>`<div style="font-size:.83rem;color:var(--ink);padding:.18rem 0;border-bottom:1px solid #f0f4f6">📄 ${d.label}</div>`).join('')}
+        <button onclick="document.getElementById('start').scrollIntoView({behavior:'smooth'})" style="margin-top:.6rem;width:100%;padding:.4rem;background:var(--brand);color:#fff;border:none;border-radius:.4rem;font-size:.82rem;font-weight:700;cursor:pointer">Start Drafting ↓</button>
+      </div>
+      <div style="background:#fff;border:1px solid var(--line);border-radius:.7rem;padding:.8rem 1rem">
+        <div style="font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--brand2);margin-bottom:.5rem">Key Search Topics</div>
+        ${p.searchFocuses.map(f=>`<div style="font-size:.83rem;color:var(--ink);padding:.18rem 0;border-bottom:1px solid #f0f4f6">🔍 ${f}</div>`).join('')}
+        <button onclick="document.getElementById('lawLibrary').scrollIntoView({behavior:'smooth'})" style="margin-top:.6rem;width:100%;padding:.4rem;background:var(--brand2);color:#fff;border:none;border-radius:.4rem;font-size:.82rem;font-weight:700;cursor:pointer">Go to Law Library ↓</button>
+      </div>
+    </div>`;
+
+  // Auto-render the law library for the selected practice area
+  renderLawLibrary();
+}
+
+// ─── FORM HELP TEXT ──────────────────────────────────────────────────────────
+function showFormHelp(){
+  const d = val('docType');
+  const helps = {
+    motion: 'For a Notice of Motion, the form asks: what the motion is for, the grounds for the motion, and what documentary evidence will be used.',
+    application: 'For a Notice of Application (Form 14E), the form asks: the relief claimed, the grounds for the application, and the documentary evidence used at the hearing.',
+    claim: 'For a Statement of Claim or Plaintiff\'s Claim, the form asks: what you are claiming (relief/amount), the material facts, and the legal basis for your claim.',
+    ltbApplication: 'For an LTB Application, you will need: the application type (L1, L2, T2, T6, etc.), the parties, the property address, the issue, and supporting documents.',
+    esaComplaint: 'For an ESA complaint summary, describe: your employment history, the alleged violation, amounts owed, and any written agreements or pay stubs.',
+    hrComplaint: 'For an HRTO application summary, describe: the protected ground (race, disability, sex, etc.), what happened, when it happened, who was responsible, and the remedy you seek.',
+    affidavit: 'For an Affidavit, you will swear or affirm facts in numbered paragraphs. Describe what you personally know. Attach exhibits (documents) referenced in the affidavit.',
+    factum: 'A Factum sets out: the facts, the issues, the law (with case citations), and the order requested. It is the written legal argument submitted to the court.',
+    draftOrder: 'A Draft Order sets out the specific relief the court is asked to grant. It becomes the court order if approved by the judge.',
+    letter: 'A demand or disclosure letter sets out: who you are, what you are asking for, why you are entitled to it, and a deadline for response.',
+    defence: 'For a Defence (Form 9A in Small Claims), you respond to each paragraph of the claim: admit, deny, or state you have no knowledge.',
+    claimForm: 'For an Application (Divorce) Form 8A, you set out: the parties, children, grounds for divorce, and the relief claimed (support, property, custody, etc.).',
+    motionRecord: 'A Motion Record Table of Contents lists every document in the record with tab numbers. Tab 1 is usually the Notice of Motion; subsequent tabs are the affidavit and exhibits.',
+    applicationRecord: 'An Application Record Table of Contents lists every document in the record with tab numbers. Tab 1 is the Notice of Application; subsequent tabs are the affidavit and exhibits.',
+    immLetter: 'An IRCC cover letter states: who you are, what application you are submitting, the forms and documents enclosed, any explanation of circumstances, and a request for processing. Keep it concise and professional.',
+    immSoF: 'A Basis of Claim (BOC) / Statement of Facts sets out: your personal history, the reason you fear persecution (s.96 Convention refugee) or risk (s.97), who would harm you and why, and why you cannot get protection from your own country. Be specific and chronological.',
+    immAppeal: 'An IAD or RAD appeal outline should include: the decision being appealed, the errors of fact or law, humanitarian and compassionate factors (IAD), and the relief requested. Attach the original decision and supporting documents.',
+    immJR: 'A Federal Court leave application for judicial review must state: the decision being challenged, the date, the grounds of review (error of law, procedural unfairness, unreasonableness), and the relief sought. File within 15 days (in-Canada) or 60 days (from outside Canada) of the decision.',
+    immResponse: 'A procedural fairness letter (PFL) response must directly address every concern raised by the officer. For each concern: state the concern, provide your explanation, and attach supporting documents. Be factual and professional.',
+    immSponsor: 'A sponsorship application summary should include: the relationship (spouse, common-law, conjugal, parent), how the relationship was formed and maintained, evidence of genuineness, financial information, and the sponsor\'s eligibility.',
+    immHC: 'An H&C application (s.25 IRPA) sets out: how long you have lived in Canada, your establishment (employment, community ties, family), hardship if removed, best interests of any children, and any other compelling circumstances.',
+  };
+  document.getElementById('formHelp').textContent = helps[d] || 'Use the story, dates, documents, and extra instructions to create a draft starter for this document type.';
+
+  // Show/hide drafting panels
+  document.getElementById('motionFields').style.display = d === 'motion' ? 'block' : 'none';
+  document.getElementById('applicationFields').style.display = d === 'application' ? 'block' : 'none';
+  document.getElementById('claimFields').style.display = (d === 'claim' || d === 'claimForm') ? 'block' : 'none';
+}
+
+// ─── SOURCE PICKING ───────────────────────────────────────────────────────────
+function pickSources(){
+  const p = PRACTICES[currentPractice];
+  const t = [val('docType'),val('story'),val('dates'),val('docs'),val('motionFor'),val('motionGrounds'),val('motionEvidence'),val('appRelief'),val('appGrounds'),val('appEvidence'),val('claimRelief'),val('claimFacts'),val('claimLaw'),val('manualSearch'),val('manualFocus'),val('extra')].join(' ');
+  // Always include first 2 laws for the practice area, then add by keyword match
+  let selected = p.laws.slice(0,2).map(l=>l.name);
+  p.keywordMap.forEach(km=>{
+    if(km.re.test(t)) selected.push(km.key);
+  });
+  // Always include CanLII for the practice area
+  const canliiEntry = p.laws.find(l=>l.name.toLowerCase().includes('canlii'));
+  if(canliiEntry) selected.push(canliiEntry.name);
+  // Deduplicate while preserving order
+  const seen = new Set();
+  return p.laws.filter(l=>{ if(selected.includes(l.name) && !seen.has(l.name)){seen.add(l.name);return true;} return false; });
+}
+
+function sourceLinksHtml(s){
+  return `<div class="source-card">
+    <h4>${s.name}</h4>
+    <p>${s.terms}</p>
+    <a class="source-link" href="${canliiUrl(s.terms)}" target="_blank">Search CanLII</a>
+    <a class="source-link" href="${elawsUrl(s.terms)}" target="_blank">Ontario e-Laws</a>
+    <a class="source-link" href="${googleUrl(s.terms)}" target="_blank">Trusted Google Search</a>
+  </div>`;
+}
+
+// ─── ANALYZE & SUGGEST ───────────────────────────────────────────────────────
+function analyzeAndSuggest(){
+  currentSources = pickSources();
+  document.getElementById('sourcesOutput').innerHTML = currentSources.map(sourceLinksHtml).join('') +
+    '<div class="notice"><strong>Verification note:</strong> These links are suggested sources/searches only. Open and check each one before filing. CanLII is the primary free source for Ontario caselaw.</div>';
+  generateDrafts();
+  document.getElementById('builder').scrollIntoView({behavior:'smooth'});
+}
+
+// ─── LANGUAGE CLEANUP ────────────────────────────────────────────────────────
+function polish(text){
+  return (text||'[Information needed]')
+    .replace(/won't|wont/gi,'has not').replace(/didn't|didnt/gi,'did not')
+    .replace(/\bgave\b/gi,'provided').replace(/\bhiding\b/gi,'withholding')
+    .replace(/\btook\b|\bstole\b/gi,'improperly used or withheld')
+    .replace(/\bfired\b/gi,'dismissed').replace(/\bgot fired\b/gi,'was dismissed');
+}
+
+function rewriteRoughSections(){
+  ['motionFor','motionGrounds','motionEvidence','appRelief','appGrounds','appEvidence','claimRelief','claimFacts','claimLaw'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el && el.value.trim()) el.value = polish(el.value.trim());
+  });
+}
+
+// ─── CLEAN BASE DRAFT ─────────────────────────────────────────────────────────
+function cleanBase(){
+  const d = val('docType');
+  const p = PRACTICES[currentPractice];
+  const base = `Practice Area: ${p.label}\nCourt file number: ${val('courtFile')||'[No file number yet / unknown]'}\nCourt location: ${val('courtLocation')||'[Court location]'}\nMoving party / Applicant / Claimant: ${val('applicant')||'[Name]'}\nRespondent(s) / Defendant(s): ${val('respondents')||'[Name(s)]'}\nFiling status: ${val('filingStatus')}\n\n`;
+
+  if(d==='motion') return base+`NOTICE OF MOTION DRAFT STARTER\n\nTHE MOTION IS FOR:\n${polish(val('motionFor'))}\n\nTHE GROUNDS FOR THE MOTION ARE:\n${polish(val('motionGrounds'))}\n\nTHE FOLLOWING DOCUMENTARY EVIDENCE will be used at the hearing of the motion:\n${polish(val('motionEvidence')||val('docs'))}\n\nBACKGROUND / NARRATIVE FOR REVIEW:\n${polish(val('story'))}\n\nIMPORTANT DATES:\n${val('dates')||'[Dates needed]'}\n\nADDITIONAL NOTES:\n${val('extra')||'[None]'}`;
+
+  if(d==='application'||d==='claimForm') return base+`NOTICE OF APPLICATION DRAFT STARTER\n\n1. The applicant makes application for:\n${polish(val('appRelief'))}\n\n2. The grounds for the application are:\n${polish(val('appGrounds'))}\n\n3. The following documentary evidence will be used at the hearing:\n${polish(val('appEvidence')||val('docs'))}\n\nBACKGROUND / NARRATIVE FOR REVIEW:\n${polish(val('story'))}\n\nIMPORTANT DATES:\n${val('dates')||'[Dates needed]'}\n\nADDITIONAL NOTES:\n${val('extra')||'[None]'}`;
+
+  if(d==='claim') return base+`STATEMENT OF CLAIM / PLAINTIFF'S CLAIM DRAFT STARTER\n\nCLAIM:\n${polish(val('claimRelief'))}\n\nMATERIAL FACTS:\n${polish(val('claimFacts')||val('story'))}\n\nLEGAL BASIS:\n${polish(val('claimLaw'))}\n\nDOCUMENTARY EVIDENCE / EXHIBITS:\n${val('docs')||'[Documents needed]'}\n\nIMPORTANT DATES:\n${val('dates')||'[Dates needed]'}\n\nADDITIONAL NOTES:\n${val('extra')||'[None]'}`;
+
+  if(d==='affidavit') return base+`AFFIDAVIT DRAFT STARTER\n\nI, [name], of [city], MAKE OATH/AFFIRM AND SAY:\n\n1. I am [role] in this matter.\n\n2. The relevant background is as follows:\n${polish(val('story'))}\n\n3. The important dates include:\n${val('dates')||'[Dates needed]'}\n\n4. The documents and exhibits I rely on include:\n${val('docs')||'[Documents needed]'}\n\n5. This affidavit is made in support of:\n${polish(val('motionFor')||val('appRelief')||val('claimRelief'))}\n\nADDITIONAL NOTES:\n${val('extra')||'[None]'}`;
+
+  if(d==='ltbApplication') return base+`LTB APPLICATION SUMMARY DRAFT\n\nApplication type (L1/L2/T2/T6/etc.): [Specify]\nProperty address: [Address]\n\nISSUE SUMMARY:\n${polish(val('story'))}\n\nKEY DATES:\n${val('dates')||'[Dates needed]'}\n\nDOCUMENTS / EVIDENCE:\n${val('docs')||'[Documents needed]'}\n\nRELIEF REQUESTED:\n${polish(val('motionFor')||val('appRelief'))}\n\nADDITIONAL NOTES:\n${val('extra')||'[None]'}`;
+
+  if(d==='esaComplaint') return base+`ESA COMPLAINT SUMMARY DRAFT\n\nEmployer name: [Name]\nEmployment period: [Start date] to [End date or ongoing]\nPosition: [Title]\n\nALLEGED VIOLATION:\n${polish(val('story'))}\n\nAMOUNTS CLAIMED:\n${polish(val('claimRelief')||val('motionFor'))}\n\nKEY DATES:\n${val('dates')||'[Dates needed]'}\n\nDOCUMENTS / EVIDENCE:\n${val('docs')||'[Documents needed]'}\n\nADDITIONAL NOTES:\n${val('extra')||'[None]'}`;
+
+  if(d==='hrComplaint') return base+`HRTO APPLICATION SUMMARY DRAFT\n\nRespondent (employer/person): [Name]\nProtected ground(s): [e.g. disability, race, sex, age]\n\nWHAT HAPPENED:\n${polish(val('story'))}\n\nKEY DATES:\n${val('dates')||'[Dates needed]'}\n\nDOCUMENTS / EVIDENCE:\n${val('docs')||'[Documents needed]'}\n\nREMEDY SOUGHT:\n${polish(val('appRelief')||val('motionFor'))}\n\nADDITIONAL NOTES:\n${val('extra')||'[None]'}`;
+
+  if(d==='motionRecord'||d==='applicationRecord') return base+`${d==='motionRecord'?'MOTION RECORD':'APPLICATION RECORD'} TABLE OF CONTENTS - DRAFT\n\nTab 1: ${d==='motionRecord'?'Notice of Motion':'Notice of Application'}\nTab 2: Affidavit of [Name]\nTab 3: Exhibits A, B, C...\nTab 4: Court Orders (if any)\nTab 5: Draft Order\n\nNARRATIVE FOR REVIEW:\n${polish(val('story'))}\n\nIMPORTANT DATES:\n${val('dates')||'[Dates needed]'}`;
+
+  if(d==='factum') return base+`FACTUM OUTLINE - DRAFT STARTER\n\nPART I — OVERVIEW\n[Brief summary of the matter and relief sought]\n${polish(val('story'))}\n\nPART II — FACTS\n[Numbered paragraphs summarizing the key facts]\nKey dates: ${val('dates')||'[Dates needed]'}\n\nPART III — ISSUES\n1. [Issue 1]\n2. [Issue 2]\n\nPART IV — LAW AND ARGUMENT\n[Submissions on each issue, citing relevant statutes and cases from CanLII]\n\nPART V — ORDER REQUESTED\n${polish(val('motionFor')||val('appRelief'))}\n\nADDITIONAL NOTES:\n${val('extra')||'[None]'}`;
+
+  if(d==='draftOrder') return base+`DRAFT ORDER - DRAFT STARTER\n\nIT IS ORDERED THAT:\n\n1. ${polish(val('motionFor')||val('appRelief')||'[Relief granted]')}\n\n2. [Additional terms if any]\n\n3. Costs: [to be determined / each party bears own costs / as agreed]\n\nDate: _______________\nJudge / Justice: _______________\n\nADDITIONAL NOTES:\n${val('extra')||'[None]'}`;
+
+  if(d==='letter') return base+`DEMAND / DISCLOSURE LETTER - DRAFT STARTER\n\nDate: [Date]\nTo: ${val('respondents')||'[Recipient name and address]'}\nRe: [Matter description]\n\nDear ${val('respondents')||'[Name]'},\n\nI write regarding the following matter:\n\n${polish(val('story'))}\n\nI am requesting the following by [deadline]:\n${polish(val('motionFor')||val('appRelief'))}\n\nIf I do not receive a response by [date], I intend to [file an application / proceed to court / file an LTB application / file an ESA complaint / take further steps].\n\nYours truly,\n${val('applicant')||'[Name]'}\n\nADDITIONAL NOTES:\n${val('extra')||'[None]'}`;
+
+  if(d==='defence') return base+`DEFENCE - DRAFT STARTER\n\nI, ${val('applicant')||'[Defendant name]'}, defend this claim on the following grounds:\n\n1. [Admit / Deny / No knowledge] paragraph [X] of the claim.\n2. [State your position on each allegation]\n\nFACTS IN SUPPORT OF DEFENCE:\n${polish(val('story'))}\n\nDOCUMENTS RELIED UPON:\n${val('docs')||'[Documents needed]'}\n\nADDITIONAL NOTES:\n${val('extra')||'[None]'}`;
+
+  // ── IMMIGRATION DRAFT TEMPLATES ──────────────────────────────────────────────
+
+  if(d==='immLetter') return `COVER LETTER — IRCC APPLICATION\nDate: [Date]\nApplicant: ${val('applicant')||'[Full Legal Name]'}\nDate of Birth: [DOB]\nUCI / Client ID: [UCI]\nApplication type: [e.g. Permanent Residence / Work Permit / Study Permit / Visitor Visa]\n\nDear Officer,\n\nI write to submit my application for [application type]. Enclosed are the following:\n\n${val('docs')||'[List all enclosed forms, photographs, fees, and supporting documents]'}\n\nSUMMARY OF MY CIRCUMSTANCES:\n${polish(val('story'))}\n\nKEY DATES:\n${val('dates')||'[Dates of entry, status, applications, decisions, etc.]'}\n\nRELIEF REQUESTED:\n${val('appRelief')||'Approval of the enclosed application.'}\n\nI affirm that the information in this application is true and complete to the best of my knowledge.\n\nRespectfully submitted,\n${val('applicant')||'[Applicant Name]'}\n\nADDITIONAL NOTES:\n${val('extra')||'[None]'}`;
+
+  if(d==='immSoF') return `BASIS OF CLAIM (BOC) — STATEMENT OF FACTS — REFUGEE CLAIM\nApplicant: ${val('applicant')||'[Full Legal Name]'}\nCountry of Citizenship: [Country]\nDate of Arrival in Canada: [Date]\n\nPART 1 — PERSONAL BACKGROUND\n[Describe your family, education, employment, and religion / political affiliation / ethnicity / other identity as relevant to your claim]\n\nPART 2 — WHO WOULD HARM YOU AND WHY\n[Identify the agent(s) of persecution or risk. Explain the reason for the harm — e.g. political opinion, religion, race, nationality, membership in a particular social group]\n\nPART 3 — WHAT HAPPENED TO YOU\n[Describe each incident chronologically — dates, locations, what happened, who was involved, injuries, threats, reports to police, etc.]\n\nNARRATIVE:\n${polish(val('story'))}\n\nKEY DATES:\n${val('dates')||'[Chronological dates of key events]'}\n\nPART 4 — STATE PROTECTION\n[Explain why you could not obtain protection from your country's authorities]\n\nPART 5 — INTERNAL FLIGHT ALTERNATIVE\n[Explain why you could not safely move to another part of your country]\n\nPART 6 — WHY YOU LEFT WHEN YOU DID\n[Explain the timing of your departure]\n\nDOCUMENTS / EVIDENCE:\n${val('docs')||'[List documents: identity, police reports, medical, country condition evidence, etc.]'}\n\nADDITIONAL NOTES:\n${val('extra')||'[None]'}`;
+
+  if(d==='immAppeal') return `IAD / RAD APPEAL — OUTLINE AND ARGUMENT\nApplicant / Appellant: ${val('applicant')||'[Full Legal Name]'}\nRespondent: Minister of Citizenship and Immigration\nFile / Appeal Number: ${val('courtFile')||'[File number]'}\nDecision appealed: [RPD / IAD / IRCC Officer decision — date and brief description]\n\nPART 1 — DECISION BEING APPEALED\n${polish(val('story'))}\n\nPART 2 — ERRORS IN THE DECISION\n[Identify errors of fact, law, or mixed fact and law. For IAD: also address humanitarian and compassionate factors]\n${polish(val('motionGrounds')||val('appGrounds'))}\n\nPART 3 — HUMANITARIAN & COMPASSIONATE FACTORS (IAD)\n[Degree of establishment in Canada; family ties; hardship to family; best interests of children; length of time in Canada; remorse / rehabilitation if applicable]\n\nPART 4 — NEW EVIDENCE (RAD)\n[Describe any new evidence not reasonably available at the time of the RPD hearing]\n\nPART 5 — RELIEF REQUESTED\n${polish(val('appRelief')||val('motionFor')||'Allow the appeal and set aside the decision below.')}\n\nKEY DATES:\n${val('dates')||'[Dates of original decision, filing deadline, etc.]'}\n\nDOCUMENTS / EVIDENCE:\n${val('docs')||'[List documents: original decision, new evidence, personal documents, country condition reports]'}\n\nADDITIONAL NOTES:\n${val('extra')||'[None]'}`;
+
+  if(d==='immJR') return `FEDERAL COURT — APPLICATION FOR LEAVE AND JUDICIAL REVIEW\nApplicant: ${val('applicant')||'[Full Legal Name]'}\nRespondent: Minister of Citizenship and Immigration (and/or Minister of Public Safety)\nDecision under review: [Name of decision-maker, date, brief description of decision]\nFile number: ${val('courtFile')||'[Court file number if assigned]'}\n\nNATURE OF THE APPLICATION:\nThe applicant seeks leave and, if leave is granted, judicial review of the decision of [decision-maker] dated [date], which [describe decision: refused sponsorship / refused refugee claim / ordered removal / etc.].\n\nGROUNDS FOR REVIEW:\n${polish(val('appGrounds')||val('motionGrounds'))}\n\nCommon grounds include:\n— The decision was unreasonable (Vavilov, 2019 SCC 65)\n— Procedural unfairness (failure to provide notice, opportunity to respond, or reasons)\n— Error of law\n— Breach of natural justice\n\nFACTS:\n${polish(val('story'))}\n\nKEY DATES:\n${val('dates')||'[Date of decision; date of receipt; filing deadline: 15 days (in Canada) or 60 days (from outside)]'}\n\nRELIEF REQUESTED:\n${polish(val('appRelief')||'(1) Leave be granted; (2) The decision be set aside; (3) The matter be remitted for redetermination by a different officer / member.')}\n\nDOCUMENTS:\n${val('docs')||'[Certified tribunal record, decision, personal documents, any new evidence]'}\n\nADDITIONAL NOTES:\n${val('extra')||'[None]'}`;
+
+  if(d==='immResponse') return `RESPONSE TO PROCEDURAL FAIRNESS LETTER (PFL / GCMS CONCERNS)\nApplicant: ${val('applicant')||'[Full Legal Name]'}\nUCI / Client ID: [UCI]\nApplication type: [Type]\nDate of PFL: [Date]\nDeadline for response: [Date]\n\nDear Officer,\n\nI write in response to your procedural fairness letter dated [date]. I address each concern raised below.\n\nCONCERN 1: [Quote or summarize the officer's first concern from the PFL]\nRESPONSE: ${polish(val('story'))}\nSUPPORTING DOCUMENTS: ${val('docs')||'[List documents addressing this concern]'}\n\nCONCERN 2: [Quote or summarize the officer's second concern]\nRESPONSE: [Address the concern directly with facts and evidence]\nSUPPORTING DOCUMENTS: [List documents]\n\n[Continue for each concern raised]\n\nCONCLUSION:\n${val('appRelief')||'I respectfully submit that the concerns raised are addressed by the evidence enclosed. I request that my application be approved.'}\n\nKEY DATES / TIMELINE:\n${val('dates')||'[Dates relevant to the concerns raised]'}\n\nADDITIONAL NOTES:\n${val('extra')||'[None]'}`;
+
+  if(d==='immSponsor') return `SPONSORSHIP APPLICATION SUMMARY — FAMILY CLASS\nSponsor: ${val('applicant')||'[Sponsor Full Name]'}\nPrincipal Applicant (sponsored person): ${val('respondents')||'[Full Name]'}\nRelationship: [Spouse / Common-law partner / Conjugal partner / Parent / Grandparent / Dependent child / Other]\nApplication type: [Inland (in-Canada) / Outland]\n\nRELATIONSHIP HISTORY:\n${polish(val('story'))}\n\nKEY DATES:\n${val('dates')||'[Date of meeting, relationship start, cohabitation/marriage date, date of application, etc.]'}\n\nEVIDENCE OF GENUINENESS:\n${val('docs')||'[Photos, communications (messages/emails/calls), travel records, shared finances, affidavits from family/friends, any official documents]'}\n\nSPONSOR ELIGIBILITY:\n— Canadian citizen / permanent resident: [Yes/No]\n— Province of residence: [Province]\n— Income / financial ability to support: [Yes/No / LICO assessment]\n— Previous sponsorship undertakings: [None / List]\n\nFORMS INCLUDED:\n— IMM 1344 — Application to Sponsor, Sponsorship Agreement and Undertaking\n— IMM 0008 — Generic Application Form for Canada\n— IMM 5532 — Relationship Information and Sponsorship Evaluation\n— IMM 5406 — Additional Family Information\n— IMM 5481 — Sponsorship Evaluation\n— [Other forms as applicable]\n\nRELIEF REQUESTED:\n${val('appRelief')||'Approval of the sponsorship application and issuance of permanent residence to the sponsored person.'}\n\nADDITIONAL NOTES:\n${val('extra')||'[None]'}`;
+
+  if(d==='immHC') return `HUMANITARIAN & COMPASSIONATE APPLICATION — SECTION 25 IRPA\nApplicant: ${val('applicant')||'[Full Legal Name]'}\nDate of Birth: [DOB]\nCountry of Citizenship: [Country]\nDate of Arrival in Canada: [Date]\nCurrent Immigration Status: [Status]\n\nFACTS AND CIRCUMSTANCES:\n${polish(val('story'))}\n\nPART 1 — ESTABLISHMENT IN CANADA\n[Length of time in Canada; employment history; education; community involvement; religious or volunteer activities; professional certifications; payment of taxes; ties to Canada]\n\nPART 2 — FAMILY TIES IN CANADA\n[Canadian citizen or permanent resident family members; children; relationships; support network]\n\nPART 3 — HARDSHIP IF REMOVED\n[What would happen to you and your family if you were removed? Consider: health, safety, economic conditions, loss of connections, children's disruption, language barriers in country of origin]\n\nPART 4 — BEST INTERESTS OF CHILDREN (if applicable)\n[For any children directly affected — Canadian-born or long-resident. Address: their schooling, language, relationships, health, and how removal would impact them — Kanthasamy, 2015 SCC 61]\n\nPART 5 — OTHER COMPELLING CIRCUMSTANCES\n[Medical conditions; trauma; other equitable factors]\n\nKEY DATES:\n${val('dates')||'[Arrival date, status history, any previous applications or decisions, children\'s births/schooling, employment history dates]'}\n\nFORMS INCLUDED:\n— IMM 5291 — Application for Permanent Residence — Humanitarian & Compassionate\n— IMM 0008 — Generic Application Form for Canada\n— IMM 5406 — Additional Family Information\n— IMM 5562 — Schedule A — Background/Declaration\n— [Supporting documents: employment letters, tax returns, school records, medical, community letters, etc.]\n\nRELIEF REQUESTED:\n${val('appRelief')||'Exemption from the requirements of IRPA or its Regulations on humanitarian and compassionate grounds, and approval for permanent residence in Canada.'}\n\nADDITIONAL NOTES:\n${val('extra')||'[None]'}`;
+
+  return base+`DRAFT STARTER — ${d.toUpperCase()}\n\nNARRATIVE:\n${polish(val('story'))}\n\nKEY DATES:\n${val('dates')||'[Dates needed]'}\n\nDOCUMENTS:\n${val('docs')||'[Documents needed]'}\n\nRELIEF SOUGHT:\n${polish(val('motionFor')||val('appRelief')||val('claimRelief'))}\n\nADDITIONAL NOTES:\n${val('extra')||'[None]'}`;
+}
+
+// ─── GENERATE DRAFTS ─────────────────────────────────────────────────────────
+function generateDrafts(){
+  if(!currentSources.length) currentSources = pickSources();
+  const clean = cleanBase();
+  document.getElementById('cleanDraft').textContent = clean;
+  const html = '<h4>INTERNAL REVIEW DRAFT — SOURCE LINKS INCLUDED FOR CHECKING</h4><p>This is not the clean filing copy. Use this version to check rules, Acts, forms, and CanLII cases before formatting the final Word/PDF draft.</p><pre style="white-space:pre-wrap;font-family:Georgia,Times New Roman,serif;line-height:1.5">'+escapeHtml(clean)+'</pre><h4>Clickable CanLII & source links to verify while reviewing</h4>'+currentSources.map(sourceLinksHtml).join('');
+  document.getElementById('reviewDraft').innerHTML = html;
+}
+
+// ─── LAW LIBRARY ─────────────────────────────────────────────────────────────
+function manualSearch(kind){
+  const t = (val('manualSearch')+' '+val('manualFocus')).trim() || PRACTICES[currentPractice].label+' Ontario law';
+  if(kind==='canlii') window.open(canliiUrl(t),'_blank');
+  if(kind==='elaws') window.open(elawsUrl(t),'_blank');
+  if(kind==='forms') window.open(formsUrl(t),'_blank');
+  if(kind==='google') window.open(googleUrl(t),'_blank');
+}
+
+function renderLawLibrary(){
+  const p = PRACTICES[currentPractice];
+  const laws = p.laws;
+  // Generate a stable card ID from law name
+  const cardId = (name,i)=>'lc_'+currentPractice+'_'+i;
+  document.getElementById('lawGrid').innerHTML = laws.map((s,i)=>{
+    const id = cardId(s.name,i);
+    // Pick a short plain-English placeholder based on practice area
+    const eg = lawCardExample(currentPractice, s.name);
+    return `
+    <div class="law-card" style="display:flex;flex-direction:column;gap:.45rem">
+      <h4 style="margin:0 0 .15rem;font-size:.95rem;color:var(--brand)">${s.name}</h4>
+      <p style="font-size:.78rem;color:var(--muted);margin:0 0 .35rem;line-height:1.4">${s.terms}</p>
+      <input id="${id}" placeholder="${eg}" style="font-size:.82rem;padding:.38rem .6rem;border:1px solid var(--line);border-radius:.4rem;background:#fafcfd;width:100%;box-sizing:border-box" />
+      <div style="display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.15rem">
+        <button onclick="searchCard('${id}','${esc(s.terms)}','canlii')" style="font-size:.78rem;padding:.3rem .6rem;background:var(--brand);color:#fff;border:none;border-radius:.35rem;cursor:pointer;font-weight:700">CanLII</button>
+        <button onclick="searchCard('${id}','${esc(s.terms)}','elaws')" style="font-size:.78rem;padding:.3rem .6rem;background:#fff;color:var(--brand);border:1px solid var(--line);border-radius:.35rem;cursor:pointer;font-weight:700">e-Laws</button>
+        <button onclick="searchCard('${id}','${esc(s.terms)}','google')" style="font-size:.78rem;padding:.3rem .6rem;background:#fff;color:var(--brand);border:1px solid var(--line);border-radius:.35rem;cursor:pointer;font-weight:700">Google</button>
+        <button onclick="searchCard('${id}','${esc(s.terms)}','trusted')" style="font-size:.78rem;padding:.3rem .6rem;background:#fff;color:var(--brand2);border:1px solid var(--line);border-radius:.35rem;cursor:pointer;font-weight:600">Trusted</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function esc(s){ return s.replace(/'/g,"\\'"); }
+
+function searchCard(inputId, baseTerms, type){
+  const userText = (document.getElementById(inputId)||{}).value||'';
+  const combined = userText ? userText+' '+baseTerms : baseTerms;
+  let url;
+  if(type==='canlii')  url = canliiUrl(combined);
+  else if(type==='elaws') url = elawsUrl(combined);
+  else if(type==='google') url = 'https://www.google.com/search?q='+enc(combined);
+  else url = googleUrl(combined);
+  window.open(url,'_blank');
+}
+
+// Plain-English placeholder examples keyed to practice + law name
+function lawCardExample(area, name){
+  const n = name.toLowerCase();
+  const examples = {
+    estate: {
+      'substitute decisions': 'e.g. POA refused to provide bank records',
+      'estates act': 'e.g. executor has not applied for probate',
+      'succession law': 'e.g. will excludes dependent child',
+      'trustee act': 'e.g. estate trustee distributed without accounting',
+      'canlii': 'e.g. estate trustee breach of fiduciary duty',
+      'rule 74': 'e.g. passing of accounts motion procedure',
+      'form 37a': 'e.g. motion to compel production of estate accounts',
+      'practice direction': 'e.g. estate application Toronto filing requirements',
+      'limitations': 'e.g. how long to bring estate claim',
+    },
+    family: {
+      'family law act': 'e.g. equalization of net family property on separation',
+      "children's law": 'e.g. custody and access best interests of the child',
+      'divorce act': 'e.g. divorce application joint or contested',
+      'child support': 'e.g. child support table amount — Ontario',
+      'spousal support': 'e.g. spousal support duration and amount',
+      'canlii': 'e.g. custody relocation best interests Ontario',
+      'family law rules': 'e.g. Form 8 application procedure Ontario',
+      'ontario court forms': 'e.g. Form 14B motion family court',
+      'limitations': 'e.g. time limit for property equalization claim',
+    },
+    civil: {
+      'rules of civil procedure': 'e.g. summary judgment motion procedure Ontario',
+      'courts of justice act': 'e.g. Superior Court jurisdiction civil claim',
+      'limitations act': 'e.g. when does the 2-year limitation period run',
+      'canlii': 'e.g. breach of contract damages Ontario Superior Court',
+      'negligence act': 'e.g. contributory negligence apportionment',
+      'ontario court forms': 'e.g. statement of claim breach of contract',
+      'libel': 'e.g. defamation notice period requirement',
+      'judicature': 'e.g. pre-judgment interest rate civil judgment Ontario',
+    },
+    employment: {
+      'employment standards': 'e.g. termination pay and severance calculation',
+      'human rights code': 'e.g. discrimination on disability grounds Ontario',
+      'wrongful dismissal': 'e.g. reasonable notice period after 10 years service',
+      'hrto': 'e.g. HRTO application for discrimination',
+      'rules of civil procedure': 'e.g. wrongful dismissal statement of claim',
+      'limitations': 'e.g. when must wrongful dismissal claim be filed',
+      'occupational health': 'e.g. workplace harassment reprisal complaint',
+      'ontario court forms': 'e.g. statement of claim employment Ontario',
+    },
+    landlord: {
+      'residential tenancies': 'e.g. L1 eviction for rent arrears Ontario',
+      'ltb decisions': 'e.g. tenant application T6 maintenance repairs',
+      'divisional court': 'e.g. appeal of LTB eviction order',
+      'ltb rules': 'e.g. LTB hearing procedure adjournment request',
+      'ontario court forms': 'e.g. LTB L2 application for eviction cause',
+      'human rights': 'e.g. housing discrimination protected ground',
+      'limitations': 'e.g. limitation period LTB tenancy claim',
+    },
+    smallclaims: {
+      'small claims court rules': "e.g. plaintiff's claim procedure Form 7A",
+      'courts of justice': 'e.g. Small Claims Court $35,000 jurisdiction limit',
+      'canlii': 'e.g. debt recovery breach of contract Small Claims Ontario',
+      'consumer protection': 'e.g. consumer protection unfair practice cancellation',
+      'limitations': 'e.g. limitation period debt claim Ontario',
+      'ontario court forms': "e.g. defence Form 9A small claims",
+      'collection': 'e.g. garnishment enforcement after small claims judgment',
+    },
+    immigration: {
+      'irpa': 'e.g. permanent residence refused — grounds of refusal',
+      'irpr': 'e.g. Express Entry minimum requirements points',
+      'refugee': 'e.g. refugee claim RPD hearing — what to expect',
+      'humanitarian': 'e.g. H&C application hardship factors — s.25 IRPA',
+      'family class': 'e.g. spouse sponsorship refusal — appeal process',
+      'express entry': 'e.g. CRS score and invitation to apply ITA',
+      'work permit': 'e.g. PGWP post-graduation work permit requirements',
+      'inadmissibility': 'e.g. criminality inadmissibility — s.36 IRPA',
+      'iad': 'e.g. IAD appeal sponsorship refusal humanitarian relief',
+      'rad': 'e.g. RAD appeal of RPD negative decision — new evidence',
+      'federal court': 'e.g. judicial review leave application IRPA s.72',
+      'canlii': 'e.g. H&C best interests of child hardship Canada',
+    },
+  };
+  const areaMap = examples[area]||{};
+  for(const key of Object.keys(areaMap)){
+    if(n.includes(key)) return areaMap[key];
+  }
+  return 'e.g. describe your issue here';
+}
+
+// ─── FILING / SERVICE ────────────────────────────────────────────────────────
+function generateSupportRequest(){
+  document.getElementById('supportOutput').textContent =
+    `REQUEST FOR DOCUMENT / FILING / SERVICE SUPPORT\n\nPractice Area: ${PRACTICES[currentPractice].label}\nSupport requested: ${val('supportOption')}\nFiling status: ${val('filingStatus')}\nCourt file number: ${val('courtFile')||'[No file number yet / unknown]'}\nCourt location: ${val('courtLocation')||'[Court location]'}\nDocument type: ${val('docType')}\nUrgent deadline: ${val('deadline')||'[unknown]'}\n\nWho must be served:\n${val('serveWho')||'[not entered]'}\n\nService address / notes:\n${val('serviceAddress')||'[not entered]'}\n\nAdministrative service statement:\nAfter your draft is created, you may request administrative filing support. We can assist with document formatting, PDF assembly, JSO filing coordination, process service coordination, and filing/service tracking. We do not provide legal advice or court representation. The client remains responsible for reviewing and approving all documents before filing.`;
+}
+
+function generateAuthorization(){
+  document.getElementById('supportOutput').textContent =
+    `CLIENT AUTHORIZATION FOR DOCUMENT HANDLING, JSO FILING COORDINATION AND/OR PROCESS SERVICE\n\nClient / self-represented party: [Client name]\nPractice Area: ${PRACTICES[currentPractice].label}\nMatter: ${val('docType')}\nFiling status: ${val('filingStatus')}\nCourt file number: ${val('courtFile')||'[No file number yet / unknown]'}\nCourt location: ${val('courtLocation')||'[Court location]'}\nSelected support: ${val('supportOption')}\n\nI authorize the service provider to assist with the limited administrative tasks selected, which may include document formatting, PDF assembly, JSO filing coordination, process service coordination, and filing/service tracking.\n\nI understand and agree that:\n1. I remain self-represented unless I separately retain a licensed legal professional.\n2. This service does not provide legal advice or court representation.\n3. I must review and approve all documents before filing/service.\n4. Court deadlines, filing deadlines, service deadlines, and urgent dates must be disclosed in writing.\n5. A new filing may not have a court file number until accepted or issued by the court.\n6. Court fees, process server fees, courier, printing, commissioning, and third-party fees may be separate.\n\nClient signature: _________________________ Date: _______________`;
+}
+
+// ─── UTILITIES ────────────────────────────────────────────────────────────────
+function escapeHtml(s){return s.replace(/[&<>]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[ch]))}
+
+async function copyText(id){
+  try{await navigator.clipboard.writeText(document.getElementById(id).innerText||document.getElementById(id).textContent);alert('Copied.');}
+  catch(e){alert('Copy failed — please select and copy manually.');}
+}
+
+function downloadText(id,name){
+  const text = document.getElementById(id).innerText||document.getElementById(id).textContent;
+  const b = new Blob([text],{type:'text/plain'}), u = URL.createObjectURL(b), a = document.createElement('a');
+  a.href=u; a.download=name; a.click(); URL.revokeObjectURL(u);
+}
+
+function downloadReviewHtml(){
+  const html = '<!doctype html><html><head><meta charset="utf-8"><title>Review Draft with Source Links</title></head><body>'+document.getElementById('reviewDraft').innerHTML+'</body></html>';
+  const b = new Blob([html],{type:'text/html'}), u = URL.createObjectURL(b), a = document.createElement('a');
+  a.href=u; a.download='review-draft-with-source-links.html'; a.click(); URL.revokeObjectURL(u);
+}
+
+function clearAll(){
+  document.querySelectorAll('input, textarea').forEach(el=>el.value='');
+  document.getElementById('sourcesOutput').textContent = 'Source links will appear here after you click "Convert Issue to Draft Sections + Source Links."';
+  document.getElementById('cleanDraft').textContent = 'Clean draft will appear here.';
+  document.getElementById('reviewDraft').textContent = 'Review draft will appear here.';
+  document.getElementById('supportOutput').textContent = 'Support request will appear here.';
+  renderLawLibrary();
+  currentSources = [];
+}
+
+// ─── CHAT KNOWLEDGE BASE ─────────────────────────────────────────────────────
+const CHAT_KB = [
+  // ── SITE / HOW TO USE ──
+  {tags:['how','use','site','work','start','begin','navigate'],
+   answer:'To get started: (1) Click the <b>practice area buttons</b> at the top — choose Estate, Family, Civil, Employment, Landlord & Tenant, or Small Claims. (2) Go to <b>Step 1: Matter Basics</b> and fill in the parties and what happened. (3) Click <b>"Convert Issue to Draft Sections + Source Links"</b> to get your draft and legal research links.'},
+  {tags:['canlii','search','case','caselaw','case law','find','research'],
+   answer:'<b>CanLII (canlii.org)</b> is the primary free source for Ontario caselaw. Every section of this site has direct CanLII search buttons. You can also use the <b>Law Library</b> section on this page — select your practice area, type your issue, and click "Search CanLII". <a href="https://www.canlii.org/en/" target="_blank">Go to CanLII →</a>'},
+  {tags:['form','37a','14e','court form','download','get form'],
+   answer:'Ontario court forms are free at the official court forms website. Common ones: <b>Form 37A</b> (Notice of Motion), <b>Form 14E</b> (Notice of Application), <b>Form 7A</b> (Small Claims Plaintiff\'s Claim). <a href="https://www.ontariocourtforms.on.ca" target="_blank">Ontario Court Forms →</a>'},
+  {tags:['legal advice','lawyer','paralegal','represent','lso'],
+   answer:'This site provides <b>legal information only — not legal advice</b>. For legal advice or representation, contact a licensed Ontario lawyer or paralegal. The Law Society of Ontario has a referral service: <a href="https://lso.ca/public-resources/finding-a-lawyer-or-paralegal" target="_blank">LSO Lawyer/Paralegal Referral →</a>'},
+  {tags:['free','cost','charge','price','fee','pay'],
+   answer:'The drafting tools, law library, and CanLII search links on this site are <b>free to use</b>. Filing/service support (document formatting, PDF assembly, JSO filing coordination, process service) are paid administrative services offered separately.'},
+
+  // ── ESTATE ──
+  {tags:['estate','executor','estate trustee','probate','will','beneficiary','deceased','inheritance'],
+   answer:'<b>Estate matters</b> in Ontario involve the <b>Estates Act</b>, <b>Trustee Act</b>, and <b>Succession Law Reform Act</b>. An estate trustee (executor) is responsible for collecting estate assets, paying debts, and distributing to beneficiaries. If the trustee fails to account or distribute properly, beneficiaries can bring a court application. Select <b>Estate & Probate</b> above for forms. <a href="https://www.canlii.org/en/#search/text=Ontario+estate+trustee+accounting+disclosure" target="_blank">Search CanLII — Estate →</a>'},
+  {tags:['fiduciary','breach','misconduct','duty','trustee duty','surcharge'],
+   answer:'A <b>fiduciary</b> is someone who must act in another\'s best interests — including estate trustees, attorneys under a POA, and directors. <b>Breach of fiduciary duty</b> in an estate context means the trustee used estate assets improperly, failed to account, self-dealt, or acted against beneficiaries\' interests. The remedy can include a <b>surcharge</b> (court-ordered repayment). Leading cases: <i>Pece v. Pece</i>, <i>Hartman Estate</i>. <a href="https://www.canlii.org/en/#search/text=breach+fiduciary+duty+estate+Ontario+surcharge" target="_blank">Search CanLII →</a>'},
+  {tags:['passing of accounts','accounting','account','records','bank records','disclosure'],
+   answer:'An estate trustee must keep full and proper accounts of all estate transactions. <b>Passing of accounts</b> is a court process (under the <b>Estates Act</b> and Rules of Civil Procedure Rule 74) where the trustee presents accounts for court approval. Beneficiaries can object. If records are refused, you can bring a motion for production. Search CanLII: <i>"passing of accounts" Ontario estate</i>. <a href="https://www.canlii.org/en/#search/text=passing+of+accounts+Ontario+estate+trustee" target="_blank">Search CanLII →</a>'},
+  {tags:['poa','power of attorney','attorney','substitute decisions','incapacity'],
+   answer:'A <b>Power of Attorney (POA)</b> for property is governed by the <b>Substitute Decisions Act, 1992</b>. The attorney must keep accounts and provide them to the grantor, their estate, or a court on request. If records are missing or the attorney misused funds, you can bring a court application for accounting and compensation. <a href="https://www.canlii.org/en/#search/text=Substitute+Decisions+Act+power+of+attorney+accounting+Ontario" target="_blank">Search CanLII — POA →</a>'},
+  {tags:['will challenge','capacity','undue influence','contest will','testamentary'],
+   answer:'<b>Will challenges</b> in Ontario raise two main issues: (1) <b>Testamentary capacity</b> — the testator must have understood the nature of making a will, the extent of their estate, and the claims of family members; (2) <b>Undue influence</b> — someone coerced or dominated the testator. The burden is on the challenger to prove the defect. Governed by the <b>Succession Law Reform Act</b>. <a href="https://www.canlii.org/en/#search/text=testamentary+capacity+undue+influence+will+Ontario" target="_blank">Search CanLII →</a>'},
+  {tags:['intestate','no will','died without a will','intestacy'],
+   answer:'If someone dies without a will in Ontario (<b>intestacy</b>), the <b>Succession Law Reform Act</b> sets out who inherits: first the spouse, then children, then parents, then siblings. The court appoints an estate trustee without a will. <a href="https://www.canlii.org/en/#search/text=intestate+succession+Ontario+Succession+Law+Reform+Act" target="_blank">Search CanLII →</a>'},
+
+  // ── FAMILY ──
+  {tags:['family','divorce','separation','marriage','spouse','family law'],
+   answer:'<b>Ontario family law</b> covers the <b>Family Law Act</b> (property, support), <b>Children\'s Law Reform Act</b> (custody/access), and the federal <b>Divorce Act</b>. On separation, key issues are: custody/parenting, child support, spousal support, and division of property. Select <b>Family Law</b> above for relevant forms and CanLII searches. <a href="https://www.canlii.org/en/#search/text=Ontario+family+law+custody+support+divorce" target="_blank">Search CanLII — Family →</a>'},
+  {tags:['custody','access','parenting','children','best interests','parenting plan'],
+   answer:'Child custody and access in Ontario is governed by the <b>Children\'s Law Reform Act</b> and the federal <b>Divorce Act</b>. The <b>only test</b> is the <b>best interests of the child</b> — courts look at the child\'s relationships, stability, each parent\'s ability to parent, the child\'s views, and history of family violence. "Custody" (now "decision-making responsibility" under the Divorce Act) covers major decisions. "Access" (now "parenting time") covers time. <a href="https://www.canlii.org/en/#search/text=best+interests+child+custody+access+Ontario" target="_blank">Search CanLII →</a>'},
+  {tags:['child support','table amount','guidelines','income','section 7'],
+   answer:'Child support in Ontario uses the <b>Federal Child Support Guidelines</b>. The base amount (Table amount) is based on the paying parent\'s gross income and number of children. On top of that, <b>section 7 expenses</b> (child care, medical, school, activities) are shared proportionally to income. Both parents must disclose income. <a href="https://www.canlii.org/en/#search/text=Federal+Child+Support+Guidelines+Ontario+table+amount" target="_blank">Search CanLII →</a>'},
+  {tags:['spousal support','alimony','ssag','entitlement','compensatory'],
+   answer:'<b>Spousal support</b> in Ontario requires first proving <b>entitlement</b> (compensatory — for career sacrifice; non-compensatory — for need; or contractual). If entitled, the <b>Spousal Support Advisory Guidelines (SSAG)</b> suggest amount and duration ranges based on incomes, length of cohabitation, and children. Entitlement is not automatic. <a href="https://www.canlii.org/en/#search/text=spousal+support+entitlement+SSAG+Ontario" target="_blank">Search CanLII →</a>'},
+  {tags:['equalization','net family property','property division','matrimonial home','nfp'],
+   answer:'On separation, Ontario spouses can claim <b>equalization of net family property</b> under the <b>Family Law Act</b>. Each spouse calculates their NFP (assets minus debts at separation, minus assets/debts at marriage). The spouse with the higher NFP pays the other half the difference. The matrimonial home has special rules — it cannot be deducted from the date-of-marriage valuation. <a href="https://www.canlii.org/en/#search/text=equalization+net+family+property+Ontario+Family+Law+Act" target="_blank">Search CanLII →</a>'},
+  {tags:['restraining order','protection order','family violence','domestic','safety'],
+   answer:'In Ontario family court, a <b>restraining order</b> under the Family Law Act or Children\'s Law Reform Act prohibits contact or presence near a person. For emergency situations, courts can grant a <b>without-notice (ex parte) order</b>. The police can enforce a restraining order. <a href="https://www.canlii.org/en/#search/text=restraining+order+Family+Law+Act+Ontario+family+violence" target="_blank">Search CanLII →</a>'},
+
+  // ── CIVIL ──
+  {tags:['civil','contract','breach','sue','claim','damages','negligence','debt','owe','unjust enrichment'],
+   answer:'<b>Ontario civil litigation</b> is governed by the <b>Rules of Civil Procedure</b>. Common causes of action include: breach of contract (failure to perform an agreement), negligence (duty + breach + causation + damages), unjust enrichment (one party benefits at another\'s expense), and debt claims. Select <b>Civil Litigation</b> above for forms. <a href="https://www.canlii.org/en/#search/text=breach+of+contract+Ontario+civil+litigation" target="_blank">Search CanLII — Civil →</a>'},
+  {tags:['limitation','limitation period','time limit','two year','deadline to sue','limitations act'],
+   answer:'In Ontario, most civil claims must be started within <b>2 years</b> of when you first knew (or ought to have known) about the claim — under the <b>Limitations Act, 2002</b>. The clock starts on the date of "discovery," not necessarily the date the wrong happened. There are exceptions (minors, incapacity, fraud). Missing the deadline can bar your claim entirely — courts treat it very seriously. <a href="https://www.canlii.org/en/#search/text=Limitations+Act+2002+Ontario+two+year+limitation+period" target="_blank">Search CanLII →</a>'},
+  {tags:['defamation','libel','slander','reputation'],
+   answer:'<b>Defamation</b> in Ontario is a false statement of fact that damages someone\'s reputation. <b>Libel</b> = published in writing; <b>slander</b> = spoken. Governed partly by the <b>Libel and Slander Act (Ontario)</b>. Key defences: truth (justification), fair comment (opinion on a matter of public interest), and responsible communication. There are strict notice requirements for media defamation. <a href="https://www.canlii.org/en/#search/text=defamation+libel+slander+Ontario" target="_blank">Search CanLII →</a>'},
+  {tags:['summary judgment','motion','dismiss','no trial','rule 20'],
+   answer:'A <b>summary judgment motion</b> (Rule 20, Rules of Civil Procedure) asks the court to decide the case without a full trial where there is "no genuine issue requiring a trial." Introduced in 2010 via <i>Hryniak v. Mauldin</i> (SCC). Courts have broad powers including hearing oral evidence, assessing credibility, and drawing inferences. <a href="https://www.canlii.org/en/#search/text=summary+judgment+Rule+20+Ontario+Hryniak" target="_blank">Search CanLII →</a>'},
+  {tags:['injunction','interlocutory','restraint','stop someone','urgent order'],
+   answer:'An <b>interlocutory injunction</b> is an urgent court order to stop someone from doing something (or to require an action) pending trial. The test from <i>RJR-MacDonald v. Canada</i>: (1) Is there a serious issue to be tried? (2) Would you suffer irreparable harm? (3) Does the balance of convenience favour granting it? Mandatory injunctions (forcing action) face a higher bar. <a href="https://www.canlii.org/en/#search/text=interlocutory+injunction+Ontario+RJR+MacDonald" target="_blank">Search CanLII →</a>'},
+
+  // ── EMPLOYMENT ──
+  {tags:['employment','fired','dismissed','termination','wrongful','job','work','notice'],
+   answer:'<b>Ontario employment law</b> has two levels: (1) The <b>Employment Standards Act, 2000 (ESA)</b> sets minimum notice/pay — 1 week per year up to 8 weeks + severance (in some cases). (2) Common law provides more generous <b>reasonable notice</b> based on age, service length, character of employment, and re-employment prospects. Most terminated employees are entitled to more than the ESA minimum. Select <b>Employment Law</b> above for forms. <a href="https://www.canlii.org/en/#search/text=wrongful+dismissal+reasonable+notice+Ontario" target="_blank">Search CanLII — Employment →</a>'},
+  {tags:['wrongful dismissal','reasonable notice','notice period','bardal'],
+   answer:'<b>Wrongful dismissal</b> = dismissal without adequate notice or pay in lieu. Ontario courts use the <b>Bardal factors</b> (from <i>Bardal v. Globe & Mail</i>): age, length of service, character of employment, and availability of similar employment. For a long-serving, senior employee, reasonable notice can be 18–24+ months. The ESA minimum is just a floor. <a href="https://www.canlii.org/en/#search/text=wrongful+dismissal+Bardal+reasonable+notice+Ontario" target="_blank">Search CanLII →</a>'},
+  {tags:['constructive dismissal','forced to quit','hostile work','changed job','job change'],
+   answer:'<b>Constructive dismissal</b> occurs when an employer substantially changes the fundamental terms of employment without consent — forcing the employee to treat the contract as breached and resign. Examples: demotion, pay cut, change in location, toxic work environment. The employee is treated as dismissed and entitled to notice/pay. Key case: <i>Potter v. New Brunswick Legal Aid</i> (SCC 2015). <a href="https://www.canlii.org/en/#search/text=constructive+dismissal+Ontario+employer+fundamental+change" target="_blank">Search CanLII →</a>'},
+  {tags:['just cause','cause for dismissal','serious misconduct','fired for cause'],
+   answer:'An employer can dismiss <b>for cause</b> without notice or pay only where the employee\'s misconduct is so serious that continued employment is impossible. Ontario courts apply a <b>contextual approach</b> — minor misconduct, first offences, or long service history can prevent a "cause" finding. The bar is high. Key case: <i>McKinley v. BC Tel</i> (SCC). <a href="https://www.canlii.org/en/#search/text=just+cause+dismissal+Ontario+McKinley+misconduct" target="_blank">Search CanLII →</a>'},
+  {tags:['esa','employment standards','severance','termination pay','minimum','standards act'],
+   answer:'The <b>Employment Standards Act, 2000 (ESA)</b> sets minimum entitlements: (1) <b>Termination pay</b>: 1 week per year of service, max 8 weeks; (2) <b>Severance pay</b> (if employer payroll ≥ $2.5M or mass layoff): 1 week per year, max 26 weeks. ESA minimums are floors only — common law reasonable notice is usually greater. File ESA complaints with the Ministry of Labour. <a href="https://www.canlii.org/en/#search/text=Employment+Standards+Act+2000+Ontario+termination+severance" target="_blank">Search CanLII →</a>'},
+  {tags:['human rights','discrimination','harassment','hrto','protected','disability','race','sex','age','creed','religion'],
+   answer:'The <b>Ontario Human Rights Code</b> prohibits discrimination and harassment based on protected grounds including: race, ancestry, place of origin, colour, ethnic origin, citizenship, creed, sex, sexual orientation, gender identity, disability, age, marital status, family status, and record of offences. File applications with the <b>Human Rights Tribunal of Ontario (HRTO)</b> within <b>1 year</b> of the last incident. <a href="https://www.canlii.org/en/#search/text=Human+Rights+Code+Ontario+discrimination+harassment+HRTO" target="_blank">Search CanLII — HRTO →</a>'},
+  {tags:['non-compete','non solicitation','restrictive covenant','non competition'],
+   answer:'<b>Non-compete clauses</b> in employment contracts are <b>presumptively void</b> in Ontario (since Oct 2021 under ESA amendments) for most employees. Courts apply a strict reasonableness test: reasonable in scope, geographic area, and duration. Non-solicitation clauses (against poaching clients) face a lower bar. Key case: <i>Lyons v. Multari</i>. <a href="https://www.canlii.org/en/#search/text=non-compete+clause+Ontario+employment+contract+void" target="_blank">Search CanLII →</a>'},
+
+  // ── LANDLORD & TENANT ──
+  {tags:['landlord','tenant','ltb','landlord tenant board','eviction','rent','lease','rta','residential tenancies'],
+   answer:'Ontario landlord and tenant matters are governed by the <b>Residential Tenancies Act, 2006</b> and heard by the <b>Landlord and Tenant Board (LTB)</b>. Landlords cannot evict tenants without an LTB order. Tenants cannot be locked out or have services cut off. Select <b>Landlord & Tenant</b> above for forms. <a href="https://www.canlii.org/en/#search/text=Residential+Tenancies+Act+Ontario+LTB+eviction" target="_blank">Search CanLII — LTB →</a>'},
+  {tags:['eviction','l1','l2','arrears','non-payment','notice to terminate','n4','n5'],
+   answer:'Landlords must follow a specific process to evict: (1) Serve a <b>Notice to Terminate</b> (e.g., N4 for arrears, N5 for cause); (2) If tenant does not void the notice or leave, file with the LTB (Form L1 for arrears, L2 for cause); (3) Attend an LTB hearing; (4) Enforce an LTB eviction order through the Sheriff. You cannot simply lock a tenant out. <a href="https://www.canlii.org/en/#search/text=LTB+eviction+rent+arrears+Ontario" target="_blank">Search CanLII →</a>'},
+  {tags:['maintenance','repair','t6','disrepair','heat','pest','mould','state of repair'],
+   answer:'Landlords must maintain rental units in a <b>good state of repair</b> and comply with health, safety, and housing standards (s. 20 RTA). Tenants can file <b>Form T6</b> (Maintenance) with the LTB for failures — heat, pests, mould, structural issues. Remedies include rent abatement, repair orders, and fines. Document everything with photos and dated written requests. <a href="https://www.canlii.org/en/#search/text=LTB+T6+maintenance+repair+Ontario+rent+abatement" target="_blank">Search CanLII →</a>'},
+  {tags:['t2','harassment','illegal entry','interference','quiet enjoyment','lockout'],
+   answer:'Tenants can file <b>Form T2</b> for: illegal entry (landlord must give 24 hours written notice except emergencies), harassment, coercion, withholding services, changing locks without consent, or substantially interfering with reasonable enjoyment. Remedies include abatement, fines up to $25,000, and termination of tenancy. <a href="https://www.canlii.org/en/#search/text=LTB+T2+harassment+illegal+entry+quiet+enjoyment+Ontario" target="_blank">Search CanLII →</a>'},
+  {tags:['rent increase','agi','above guideline','rent control','guideline'],
+   answer:'Rent increases are capped at the annual <b>Rent Increase Guideline</b> (set by Ontario each year). Landlords can apply for an <b>Above Guideline Increase (AGI)</b> using LTB Form L5 for extraordinary operating costs, capital expenditures, or security service costs. <b>Note:</b> Units first occupied for residential purposes after Nov 15, 2018 are exempt from rent control. <a href="https://www.canlii.org/en/#search/text=above+guideline+increase+AGI+Ontario+LTB+rent+control" target="_blank">Search CanLII →</a>'},
+  {tags:['own use','n12','n13','landlord own use','renovate','evict for renovation'],
+   answer:'A landlord can end a tenancy for <b>own use</b> (N12 — landlord, purchaser, or family moving in) or <b>renovation/demolition</b> (N13). Requirements: minimum 60 days notice, tenant must agree or apply to the LTB. For own-use N12, the landlord must pay one month\'s compensation. Bad-faith evictions can result in significant fines. <a href="https://www.canlii.org/en/#search/text=N12+own+use+eviction+Ontario+RTA+bad+faith" target="_blank">Search CanLII →</a>'},
+
+  // ── SMALL CLAIMS ──
+  {tags:['small claims','$35000','35000','35,000','plaintiff','sue','money claim','court under 35'],
+   answer:'Ontario <b>Small Claims Court</b> handles money claims up to <b>$35,000</b>. File a <b>Plaintiff\'s Claim (Form 7A)</b> at the courthouse in the defendant\'s county. The defendant has <b>20 days</b> to file a Defence (Form 9A). The process is designed for self-represented parties. Limit your claim to $35,000 or abandon the excess. Select <b>Small Claims</b> above for the right forms. <a href="https://www.canlii.org/en/#search/text=Ontario+Small+Claims+Court+procedure" target="_blank">Search CanLII →</a>'},
+  {tags:['default judgment','defendant','no response','did not respond','no defence filed'],
+   answer:'If the defendant does not file a Defence within <b>20 days</b> in Small Claims Court, you can request a <b>default judgment</b> by filing with the clerk. The court will order the defendant to pay without a hearing. You will need: the Plaintiff\'s Claim, proof of service, and a Default Judgment form. <a href="https://www.canlii.org/en/#search/text=default+judgment+Ontario+Small+Claims+Court" target="_blank">Search CanLII →</a>'},
+  {tags:['garnishment','enforce','collect','judgment','writ','collect on a judgment'],
+   answer:'After winning a <b>judgment</b> in Small Claims Court (or any court), you can enforce it by: (1) <b>Garnishing wages</b> — file a Notice of Garnishment with the employer; (2) <b>Garnishing a bank account</b>; (3) Filing a <b>Writ of Seizure and Sale</b> with the Sheriff; (4) Examining the debtor under oath (Examination of Debtor). Court enforcement requires time and effort. <a href="https://www.canlii.org/en/#search/text=garnishment+enforce+judgment+Ontario+Small+Claims" target="_blank">Search CanLII →</a>'},
+  {tags:['consumer','warranty','refund','consumer protection','unfair practice'],
+   answer:'The <b>Consumer Protection Act, 2002</b> protects Ontario consumers against: unfair practices, misleading representations, poor performance of services, and warranties on goods. Consumers can cancel contracts within cooling-off periods and seek refunds. Claims can be brought in Small Claims Court. <a href="https://www.canlii.org/en/#search/text=Consumer+Protection+Act+2002+Ontario+unfair+practice+warranty" target="_blank">Search CanLII →</a>'},
+  {tags:['contractor','unpaid invoice','services not paid','deposit back','home repair'],
+   answer:'Contractor disputes are common in Small Claims Court. If you hired someone who didn\'t complete the work, or a contractor who wasn\'t paid: (1) Document the contract (written or oral); (2) Photograph the work/non-work; (3) Send a written demand first; (4) File in Small Claims Court (up to $35,000). Consider whether the <b>Construction Act</b> applies (for liens on property). <a href="https://www.canlii.org/en/#search/text=Ontario+Small+Claims+contractor+dispute+breach+contract" target="_blank">Search CanLII →</a>'},
+
+  // ── GENERAL PROCESS ──
+  {tags:['motion','notice of motion','how to bring a motion','form 37a','bring a motion'],
+   answer:'A <b>Notice of Motion (Form 37A)</b> asks the court to make a specific order. You need: (1) What order you want; (2) Your grounds (legal reasons); (3) Documentary evidence (affidavit + exhibits). Serve it on all parties, then file with the court. The motion is heard on a date set by the court. This site has a full drafting tool for Form 37A. <a href="https://www.canlii.org/en/#search/text=Ontario+notice+of+motion+Form+37A+Rules+Civil+Procedure" target="_blank">Search CanLII →</a>'},
+  {tags:['application','notice of application','form 14e','how to apply','start a court case'],
+   answer:'A <b>Notice of Application (Form 14E)</b> starts an originating court proceeding (or seeks directions). It must state: (1) The relief claimed; (2) The grounds; (3) The documentary evidence to be used. Applications are heard at a date set by the court after all parties respond. Use the drafting tool on this site to build one. <a href="https://www.canlii.org/en/#search/text=Ontario+notice+of+application+Form+14E+Rules+Civil+Procedure" target="_blank">Search CanLII →</a>'},
+  {tags:['affidavit','swear','affirm','oath','commissioner','notarize','deponent'],
+   answer:'An <b>affidavit</b> is a written sworn statement of facts. Rules: (1) Each paragraph should contain one fact; (2) Only state what you personally know; (3) It must be sworn or affirmed before a <b>Commissioner of Oaths</b> (Service Ontario, most lawyers, some libraries, banks); (4) Attach documents as <b>exhibits</b> labelled A, B, C... and referenced in the text. Hearsay must be identified as such.'},
+  {tags:['filing','file','jso','courthouse','how to file','submit documents','court filing'],
+   answer:'Ontario court documents can be filed: (1) <b>In person</b> at the courthouse counter; (2) Online through the <b>Justice Services Online (JSO)</b> portal for civil matters; (3) By mail (confirm with the courthouse). Pay the filing fee when filing. Keep a stamped copy for your records. The court file number is assigned on first filing. <a href="https://www.google.com/search?q=Ontario+Justice+Services+Online+JSO+court+filing" target="_blank">JSO Filing Info →</a>'},
+  {tags:['service','serve','process server','how to serve','personal service','affidavit of service'],
+   answer:'Most Ontario court documents must be served on the other party. <b>Personal service</b> = handed directly to the person. Alternatives (with rules): leaving with an adult at their residence, mail, courier, email (if consented). After service, file an <b>Affidavit of Service</b> as proof. The Filing/Service section of this site can help arrange process service.'},
+  {tags:['rules of civil procedure','rules','rcp','ontario rules','procedure','rule 74'],
+   answer:'The <b>Rules of Civil Procedure (R.R.O. 1990, Reg. 194)</b> govern all civil court proceedings in Ontario Superior Court. They cover: originating process, motions, applications, discoveries, service, costs, trials, and enforcement. Rule 74 covers estate proceedings. <a href="https://www.canlii.org/en/on/laws/regu/rro-1990-reg-194/latest/" target="_blank">Rules of Civil Procedure on CanLII →</a>'},
+  {tags:['elaws','ontario laws','statutes','legislation','find law','ontario.ca','e-laws'],
+   answer:'Ontario statutes and regulations are free at <b>Ontario e-Laws</b>. <a href="https://www.ontario.ca/laws" target="_blank">Ontario e-Laws →</a>. For court decisions (caselaw), use <a href="https://www.canlii.org" target="_blank">CanLII →</a>. Both are free and authoritative. Always check for "current" (in force) vs. "historical" versions of legislation.'},
+  // ── IMMIGRATION ──
+  {tags:['immigration','ircc','irpa','canada immigration','apply','permanent residence','pr','citizenship'],
+   answer:'<b>Canadian immigration</b> is governed by the <b>Immigration and Refugee Protection Act (IRPA)</b> and its Regulations (IRPR). Key pathways to permanent residence include: <b>Express Entry</b> (Federal Skilled Worker, Canadian Experience Class, Federal Skilled Trades), <b>Provincial Nominee Programs (PNP)</b>, <b>Family Class Sponsorship</b>, and <b>Refugee Protection</b>. IRCC (Immigration, Refugees and Citizenship Canada) processes most applications. Select <b>Immigration</b> above for forms and research. <a href="https://www.canlii.org/en/ca/laws/stat/sc-2001-c-27/latest/" target="_blank">IRPA on CanLII →</a>'},
+
+  {tags:['express entry','crs','federal skilled worker','fsw','canadian experience class','cec','invitation','ita','draw'],
+   answer:'<b>Express Entry</b> is a points-based system managing three federal programs: <b>Federal Skilled Worker (FSW)</b>, <b>Canadian Experience Class (CEC)</b>, and <b>Federal Skilled Trades (FST)</b>. Candidates get a <b>Comprehensive Ranking System (CRS)</b> score based on age, education, language, work experience, and adaptability factors. IRCC holds draws and issues <b>Invitations to Apply (ITA)</b> to the highest-scoring candidates. A Provincial Nomination adds 600 CRS points. <a href="https://www.canlii.org/en/#search/text=Express+Entry+CRS+Federal+Skilled+Worker+Canadian+Experience+Class" target="_blank">Search CanLII →</a>'},
+
+  {tags:['sponsorship','sponsor','spouse','common-law','conjugal','family class','imm 1344','partner sponsorship'],
+   answer:'<b>Family Class Sponsorship</b> allows Canadian citizens and permanent residents to sponsor close family members. Sponsors must be 18+, not in receipt of social assistance (except disability), and not previously defaulted on an undertaking. The sponsored person must be a genuine family member. The key form is <b>IMM 1344</b>. IRCC assesses whether the relationship is genuine and not entered primarily for immigration purposes. Inland and outland applications exist for spouses/partners. <a href="https://www.canlii.org/en/#search/text=family+class+sponsorship+spouse+common-law+IRPA+genuine+relationship" target="_blank">Search CanLII →</a>'},
+
+  {tags:['refugee','asylum','rpd','convention refugee','persecution','section 96','section 97','basis of claim','boc'],
+   answer:'<b>Refugee protection</b> in Canada is decided by the <b>Refugee Protection Division (RPD)</b>. Two grounds: (1) <b>s.96 — Convention Refugee</b>: fear of persecution based on race, religion, nationality, political opinion, or membership in a particular social group; (2) <b>s.97 — Person in Need of Protection</b>: risk of torture, cruel treatment, or death. You must show the fear is well-founded and state protection is unavailable or inadequate. File a <b>Basis of Claim (BOC)</b> form within 15 days of referral. <a href="https://www.canlii.org/en/#search/text=refugee+protection+section+96+97+IRPA+RPD+convention+refugee" target="_blank">Search CanLII →</a>'},
+
+  {tags:['rad','refugee appeal','appeal refugee claim','rpd decision appeal','refugee appeal division'],
+   answer:'If your <b>RPD (Refugee Protection Division)</b> claim is refused, you can appeal to the <b>Refugee Appeal Division (RAD)</b> within <b>15 days</b> of receiving the written reasons. The RAD reviews the RPD decision for errors of fact, law, or mixed fact and law. New evidence is only admissible in limited circumstances (it must not have been reasonably available at the time of the RPD hearing). The RAD can confirm, set aside, or substitute its own determination. <a href="https://www.canlii.org/en/#search/text=Refugee+Appeal+Division+RAD+new+evidence+RPD+decision" target="_blank">Search CanLII →</a>'},
+
+  {tags:['iad','immigration appeal division','sponsorship appeal','removal order appeal','departure order','deportation order'],
+   answer:'The <b>Immigration Appeal Division (IAD)</b> hears: (1) <b>Sponsorship refusals</b>; (2) <b>Removal order appeals</b> by permanent residents and protected persons; (3) <b>Residency obligation appeals</b>. For sponsorship appeals: the IAD reviews the officer\'s decision de novo. For removal orders: the IAD can also consider <b>humanitarian and compassionate (H&C) factors</b> and "special relief." IAD hearings are like mini-trials — evidence, witnesses, and submissions. <a href="https://www.canlii.org/en/#search/text=IAD+Immigration+Appeal+Division+sponsorship+refusal+removal+order+humanitarian" target="_blank">Search CanLII →</a>'},
+
+  {tags:['humanitarian','compassionate','h&c','section 25','irpa','establishment','hardship','best interests child','kanthasamy'],
+   answer:'An <b>H&C application (s.25 IRPA)</b> allows a person in Canada to apply for permanent residence despite not meeting the normal requirements. Officers consider: (1) <b>Establishment in Canada</b> (employment, community ties, family); (2) <b>Hardship if removed</b> (conditions in country of origin, family separation); (3) <b>Best interests of any children</b> directly affected — this must be given substantial weight. The leading case is <i>Kanthasamy v. Canada</i> (SCC 2015). H&C is not an appeal mechanism — it is a separate, positive application. <a href="https://www.canlii.org/en/#search/text=humanitarian+compassionate+section+25+IRPA+Kanthasamy+establishment+hardship" target="_blank">Search CanLII →</a>'},
+
+  {tags:['work permit','lmia','labour market impact assessment','open work permit','pgwp','post-graduation','cusma','intra-company'],
+   answer:'<b>Work permits</b> in Canada are either <b>employer-specific</b> (tied to a specific employer, usually requires an LMIA) or <b>open</b> (work for any employer). Key open work permits: (1) <b>PGWP</b> (Post-Graduation Work Permit) — for graduates of eligible Canadian institutions, valid up to 3 years; (2) <b>Spousal/partner open work permit</b>; (3) <b>Bridging Open Work Permit (BOWP)</b> — for PR applicants. A <b>Labour Market Impact Assessment (LMIA)</b> from ESDC confirms no qualified Canadian is available. Some categories are LMIA-exempt (CUSMA/USMCA, intra-company transfers, significant benefit). <a href="https://www.canlii.org/en/#search/text=work+permit+LMIA+open+work+permit+PGWP+Canada+IRPR" target="_blank">Search CanLII →</a>'},
+
+  {tags:['study permit','student permit','study in canada','dli','designated learning institution','swp'],
+   answer:'A <b>study permit</b> is required to study at a Designated Learning Institution (DLI) in Canada for programs longer than 6 months. Apply before arriving or after arrival. Requirements include: letter of acceptance, proof of funds, language proficiency, and ties to home country (for temporary resident intent). Study permit holders can usually work <b>on-campus</b> without a work permit and <b>off-campus up to 24 hours/week</b> during school (restrictions have changed — verify current rules with IRCC). <a href="https://www.canlii.org/en/#search/text=study+permit+Canada+designated+learning+institution+IRPR" target="_blank">Search CanLII →</a>'},
+
+  {tags:['visitor visa','trv','temporary resident visa','visitor','tourist','come to canada','entry','eTA'],
+   answer:'Citizens of most countries need a <b>Temporary Resident Visa (TRV)</b> or <b>eTA (Electronic Travel Authorization)</b> to visit Canada. An eTA is for visa-exempt nationals flying to Canada. A TRV requires: valid passport, financial support, ties to home country, intent to leave. Visitors can usually stay up to 6 months. Extensions must be filed before status expires. Overstaying can lead to inadmissibility. <a href="https://www.canlii.org/en/#search/text=temporary+resident+visa+visitor+Canada+IRPR+eTA" target="_blank">Search CanLII →</a>'},
+
+  {tags:['inadmissibility','criminality','section 36','misrepresentation','section 40','excluded','barred','admissibility hearing'],
+   answer:'<b>Inadmissibility</b> under IRPA can bar someone from entering or remaining in Canada. Key grounds: (1) <b>s.36 — Criminality</b>: conviction inside or outside Canada (serious criminality = 6+ months sentence; ordinary criminality for temporary residents); (2) <b>s.40 — Misrepresentation</b>: misrepresenting material facts in any immigration application — results in a 5-year bar; (3) Other grounds: security, human rights violations, organized crime, health, financial. Criminal Rehabilitation or Temporary Resident Permit (TRP) may overcome criminality. <a href="https://www.canlii.org/en/#search/text=inadmissibility+IRPA+section+36+criminality+section+40+misrepresentation" target="_blank">Search CanLII →</a>'},
+
+  {tags:['removal order','deport','deportation','departure order','exclusion order','prra','pre-removal risk assessment'],
+   answer:'There are three types of removal orders in Canada: (1) <b>Departure order</b> — must leave within 30 days (can re-enter without special permission if you comply); (2) <b>Exclusion order</b> — barred from returning for 1 year (5 years for misrepresentation) unless written authorization; (3) <b>Deportation order</b> — permanently barred without written authorization. Before removal, a <b>Pre-Removal Risk Assessment (PRRA)</b> may be available if a year has passed since last protection determination. Most permanent residents can appeal to the IAD. <a href="https://www.canlii.org/en/#search/text=removal+order+IRPA+deportation+exclusion+departure+PRRA" target="_blank">Search CanLII →</a>'},
+
+  {tags:['judicial review','federal court','leave','irpa section 72','vavilov','reasonableness','procedural fairness'],
+   answer:'Most negative immigration decisions can be challenged by <b>judicial review</b> in the <b>Federal Court</b> under <b>s.72 IRPA</b>. You must first get <b>leave</b> (permission) from the court. Deadlines: <b>15 days</b> (in Canada) or <b>60 days</b> (outside Canada) from the decision. The main standard of review is <b>reasonableness</b> (<i>Canada v. Vavilov</i>, 2019 SCC 65) — was the decision justified, transparent, and intelligible? <b>Procedural fairness</b> issues are reviewed on correctness. If leave is granted, the hearing is typically 30 minutes — written arguments are essential. <a href="https://www.canlii.org/en/#search/text=Federal+Court+judicial+review+immigration+IRPA+section+72+Vavilov+reasonableness" target="_blank">Search CanLII →</a>'},
+
+  {tags:['procedural fairness letter','pfl','gcms notes','officer concern','respond to officer','fairness letter'],
+   answer:'A <b>Procedural Fairness Letter (PFL)</b> is sent by an IRCC officer when they have concerns about your application that could lead to refusal. You must respond within the given deadline (often 30 days). Address every concern directly with facts, explanation, and documents. Failure to respond or an inadequate response typically results in refusal. You can request your <b>GCMS notes</b> (the officer\'s file notes) through an Access to Information (ATIP) request to understand the concerns. <a href="https://www.canlii.org/en/#search/text=procedural+fairness+letter+IRCC+immigration+respond+officer+concerns" target="_blank">Search CanLII →</a>'},
+
+  {tags:['mandamus','delay','ircc delay','unreasonable delay','excessive processing','writ of mandamus'],
+   answer:'If IRCC is taking an unreasonably long time to process your application, you may apply to the <b>Federal Court for a writ of mandamus</b> — a court order compelling IRCC to make a decision. To succeed, you must show: a clear legal duty to act, a demand was made, there was unreasonable delay, and no other adequate remedy. Courts consider whether global processing times explain the delay. First step: send a formal written demand to IRCC for a decision, then assess filing. <a href="https://www.canlii.org/en/#search/text=mandamus+IRCC+Federal+Court+immigration+unreasonable+delay+processing" target="_blank">Search CanLII →</a>'},
+
+  {tags:['citizenship','naturalization','citizen','citizenship application','irb','cit 0002','knowledge test','oath','residency requirement'],
+   answer:'To apply for <b>Canadian citizenship</b>, you generally must: (1) Be a permanent resident; (2) Have been physically present in Canada for <b>3 of the past 5 years</b> (1095 days); (3) Have filed Canadian taxes; (4) Pass a <b>knowledge test</b> (if 18–54); (5) Demonstrate language ability (English or French, if 18–54). The application is <b>CIT 0002</b>. A <b>citizenship judge</b> may examine cases with concerns. Appeals go to Federal Court. <a href="https://www.canlii.org/en/#search/text=Canadian+citizenship+application+physical+presence+requirements+Citizenship+Act" target="_blank">Search CanLII →</a>'},
+
+  {tags:['provincial nominee','pnp','oinp','ontario immigrant nominee','ontario nomination','streams'],
+   answer:'The <b>Ontario Immigrant Nominee Program (OINP)</b> nominates candidates for permanent residence through provincial streams, including: <b>Human Capital Priority</b> (for Express Entry candidates), <b>Skilled Trades</b>, <b>French-Speaking Skilled Worker</b>, <b>Employer Job Offer streams</b>, and others. A provincial nomination adds <b>600 CRS points</b> to your Express Entry profile. Each province runs its own PNP with different streams, requirements, and processing times. <a href="https://www.canlii.org/en/#search/text=Ontario+Immigrant+Nominee+Program+OINP+provincial+nominee+permanent+residence" target="_blank">Search CanLII →</a>'},
+
+  {tags:['permanent residency card','pr card','status document','renew pr card','travel document','confirm permanent residence'],
+   answer:'A <b>Permanent Resident (PR) Card</b> is required to re-enter Canada by commercial carrier. PR cards are valid for 5 years. To renew, you must have met the <b>residency obligation</b>: 730 days physically present in Canada (or accompanying a Canadian citizen, or employed abroad by a Canadian company) in the 5 years before renewal. If you\'re outside Canada without a valid PR card, apply for a <b>Permanent Resident Travel Document (PRTD)</b>. <a href="https://www.canlii.org/en/#search/text=permanent+resident+card+residency+obligation+730+days+IRPA" target="_blank">Search CanLII →</a>'},
+
+  {tags:['refugee board','irb','immigration division','id','admissibility hearing','immigration judge','member'],
+   answer:'The <b>Immigration and Refugee Board (IRB)</b> is Canada\'s largest independent tribunal. It has four divisions: (1) <b>RPD</b> — Refugee Protection Division (refugee claims); (2) <b>RAD</b> — Refugee Appeal Division; (3) <b>IAD</b> — Immigration Appeal Division (sponsorship/removal appeals); (4) <b>ID</b> — Immigration Division (admissibility hearings, detention reviews). IRB hearings are quasi-judicial — you can have a representative, call witnesses, and make oral submissions. <a href="https://www.canlii.org/en/#search/text=IRB+RPD+RAD+IAD+Immigration+Refugee+Board+Canada" target="_blank">Search CanLII →</a>'},
+
+  // ── GENERAL PROCESS (continued) ──
+  {tags:['costs','legal costs','court costs','party-party','substantial indemnity','who pays costs'],
+   answer:'In Ontario civil litigation, <b>costs</b> are awarded in the discretion of the court. The loser generally pays the winner\'s costs. There are two scales: (1) <b>Partial indemnity</b> (lower, ~60% of actual): the default; (2) <b>Substantial indemnity</b> (higher, ~90%): awarded for offers to settle, bad faith, or misconduct. In Small Claims Court, costs are capped at 15% of the claim. <a href="https://www.canlii.org/en/#search/text=costs+award+Ontario+civil+litigation+partial+indemnity" target="_blank">Search CanLII →</a>'},
+  {tags:['offer to settle','rule 49','without prejudice','formal offer'],
+   answer:'Under <b>Rule 49</b> (Rules of Civil Procedure), a formal Offer to Settle that is not accepted can have <b>cost consequences</b>. If the result at trial is no better than the offer, the offering party may get costs on a <b>substantial indemnity basis</b> from the date of the offer. Always mark your offers "Without Prejudice" for negotiation purposes, but use the Rule 49 formal offer for cost protection. <a href="https://www.canlii.org/en/#search/text=Rule+49+offer+to+settle+Ontario+costs+substantial+indemnity" target="_blank">Search CanLII →</a>'},
+];
+
+// ─── AREA DETECTOR ───────────────────────────────────────────────────────────
+const AREA_SIGNALS = [
+  {area:'Estate & Probate', keys:['estate','executor','trustee','probate','will','beneficiary','poa','power of attorney','passing of accounts','testamentary','intestate','surrogate','dependant relief','inheritance','deceased','death','bequest','codicil','letters probate','certificate of appointment','fiduciary','surcharge'],
+   statute:'Estates Act, Trustee Act, Succession Law Reform Act, Substitute Decisions Act',
+   canlii:'Ontario estate trustee executor probate will'},
+  {area:'Family Law', keys:['divorce','separation','custody','access','parenting','child support','spousal support','alimony','equalization','matrimonial','family property','restraining order','domestic','cohabitation','marriage contract','net family property','ssag','ocl','office of children\'s lawyer'],
+   statute:'Family Law Act, Children\'s Law Reform Act, Divorce Act (federal)',
+   canlii:'Ontario family law divorce custody support equalization'},
+  {area:'Civil Litigation', keys:['contract','breach','negligence','tort','damages','unjust enrichment','fraud','misrepresentation','injunction','trespass','nuisance','defamation','libel','slander','property dispute','debt','owe','judgment','plaintiff','defendant','statement of claim','discovery','summary judgment'],
+   statute:'Rules of Civil Procedure, Courts of Justice Act, Limitations Act 2002',
+   canlii:'Ontario civil litigation breach contract negligence damages'},
+  {area:'Employment Law', keys:['fired','dismissed','termination','wrongful dismissal','constructive dismissal','severance','notice period','employment contract','esa','employment standards','human rights','discrimination','harassment','hrto','workplace','employer','employee','just cause','layoff','resignation','non-compete','non-solicitation'],
+   statute:'Employment Standards Act 2000, Human Rights Code, Occupational Health and Safety Act',
+   canlii:'Ontario wrongful dismissal employment standards human rights'},
+  {area:'Landlord & Tenant', keys:['landlord','tenant','rent','lease','eviction','ltb','landlord tenant board','rta','residential tenancies','arrears','notice to terminate','maintenance','repair','above guideline','agi','illegal entry','quiet enjoyment','subletting','deposit','last month'],
+   statute:'Residential Tenancies Act 2006',
+   canlii:'Ontario landlord tenant board eviction rent maintenance'},
+  {area:'Small Claims', keys:['small claims','$','dollars','owe me','owes me','unpaid','invoice','contractor','refund','deposit','property damage','goods','services','consumer protection','warranty'],
+   statute:'Small Claims Court Rules, Courts of Justice Act, Consumer Protection Act 2002',
+   canlii:'Ontario Small Claims Court breach contract debt damages'},
+  {area:'Criminal / Regulatory', keys:['criminal','charged','arrest','police','offence','mischief','assault','fraud','theft','court appearance','bail','probation','parole','charge','prosecution','crown','defence','accused'],
+   statute:'Criminal Code of Canada, Provincial Offences Act Ontario',
+   canlii:'Ontario criminal law charge defence'},
+  {area:'Immigration', keys:['immigration','visa','pr','permanent resident','permanent residence','citizenship','refugee','deportation','work permit','study permit','ircc','irpa','irpr','express entry','crs','fsw','cec','fst','sponsorship','sponsor','family class','refugee claim','rpd','rad','iad','federal court','judicial review','inadmissibility','criminality','misrepresentation','removal order','departure order','exclusion order','deportation order','pgwp','lmia','open work permit','study permit','visitor visa','trv','eta','h&c','humanitarian','compassionate','section 25','pfl','procedural fairness','gcms','mandamus','pnp','provincial nominee','oinp','pr card','residency obligation','irb','admissibility','detention','basis of claim','boc','prra','cusma','intra-company','naturalization','oath','citizenship test'],
+   statute:'Immigration and Refugee Protection Act (IRPA), Immigration and Refugee Protection Regulations (IRPR), Citizenship Act',
+   canlii:'Canada immigration refugee IRPA permanent resident sponsorship removal Federal Court'},
+  {area:'Human Rights', keys:['human rights','discrimination','harass','protected ground','disability','race','gender','religion','sexual orientation','code','hrto','tribunal'],
+   statute:'Ontario Human Rights Code',
+   canlii:'Ontario Human Rights Code discrimination harassment HRTO'},
+  {area:'Administrative / Regulatory', keys:['tribunal','board','commission','appeal','review','administrative','licence','permit','regulation','compliance','ministry','government','municipal','bylaw'],
+   statute:'Judicial Review Procedure Act, Ontario Administrative Law',
+   canlii:'Ontario administrative law tribunal judicial review'},
+];
+
+function detectArea(t){
+  let best = null, bestScore = 0;
+  AREA_SIGNALS.forEach(a=>{
+    let score = a.keys.filter(k=>t.includes(k)).length;
+    if(score > bestScore){ bestScore = score; best = a; }
+  });
+  return bestScore > 0 ? best : null;
+}
+
+// ─── FLOATING CHAT ENGINE ─────────────────────────────────────────────────────
+let chatOpen = false;
+let chatGreeted = false;
+
+function toggleChat(){
+  chatOpen = !chatOpen;
+  const panel = document.getElementById('chatPanel');
+  panel.classList.toggle('open', chatOpen);
+  if(chatOpen && !chatGreeted){
+    chatGreeted = true;
+    chatBotMsg(
+      'Hi! I\'m the Ontario Legal Assistant.<br><br>' +
+      'Ask me <b>anything about Ontario law</b> — I\'ll explain the area of law, point to the right statutes, give you real information, and build direct CanLII searches from your question.<br><br>' +
+      'What would you like to know?',
+      ['Estate & fiduciary duty','Wrongful dismissal','Child custody','Eviction process','Breach of contract','Small claims court','How to file a motion','Find caselaw on CanLII']
+    );
+  }
+  if(chatOpen) document.getElementById('chatInput').focus();
+}
+
+function chatBotMsg(html, suggestions){
+  const msgs = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'chat-msg bot';
+  div.innerHTML = html;
+  if(suggestions && suggestions.length){
+    const row = document.createElement('div');
+    row.className = 'chat-suggestions';
+    suggestions.forEach(s=>{
+      const btn = document.createElement('button');
+      btn.className = 'chat-sugg';
+      btn.textContent = s;
+      btn.onclick = ()=>{ chatSubmit(s); };
+      row.appendChild(btn);
+    });
+    div.appendChild(row);
+  }
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function chatUserMsg(text){
+  const msgs = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'chat-msg user';
+  div.textContent = text;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function chatSend(){
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if(!text) return;
+  input.value = '';
+  chatSubmit(text);
+}
+
+function chatSubmit(text){
+  chatUserMsg(text);
+  setTimeout(()=>chatRespond(text), 320);
+}
+
+function buildAnswer(text, forChat){
+  const t = text.toLowerCase();
+  // Score every KB entry
+  let best = null, bestScore = 0;
+  CHAT_KB.forEach(entry=>{
+    let score = 0;
+    entry.tags.forEach(tag=>{ if(t.includes(tag)) score += 2; });
+    // partial word match bonus
+    entry.tags.forEach(tag=>{ if(tag.length > 4 && t.split(/\s+/).some(w=>w.startsWith(tag.substring(0,4)))) score += 1; });
+    if(score > bestScore){ bestScore = score; best = entry; }
+  });
+  if(best && bestScore >= 1){
+    return best.answer + '<br><br><small style="color:var(--muted)">Legal information only — not legal advice. Verify on CanLII before filing.</small>';
+  }
+
+  // No KB match — build a substantive context-aware response
+  const area = detectArea(t);
+  const qCanLII = encodeURIComponent((area ? area.canlii + ' ' : 'Ontario law ') + text);
+  const qElaws  = encodeURIComponent(text + ' site:ontario.ca/laws');
+  const qForms  = encodeURIComponent(text + ' site:ontariocourtforms.on.ca');
+  const qGoogle = encodeURIComponent(text + ' Ontario law site:canlii.org OR site:ontario.ca/laws OR site:lso.ca OR site:ontariocourts.ca');
+
+  let html = '';
+
+  if(area){
+    html += `<b>Area of law: ${area.area}</b><br>`;
+    html += `Your question appears to involve <b>${area.area}</b>. The governing legislation in this area is: <i>${area.statute}</i>.<br><br>`;
+    html += `<b>What you should know:</b> ${getAreaContext(area.area)}<br><br>`;
+  } else {
+    html += `I can help with that. Here is how to research this question in Ontario:<br><br>`;
+    html += `<b>General approach:</b> Ontario law is researched using CanLII (free caselaw), Ontario e-Laws (free statutes), and official court forms. For any legal issue, the first step is identifying the relevant statute, then finding cases that interpret it on CanLII.<br><br>`;
+  }
+
+  html += `<b>Research links built from your question:</b><br>`;
+  html += `<a href="https://www.canlii.org/en/#search/text=${qCanLII}" target="_blank">🔍 Search CanLII: "${text.substring(0,50)}${text.length>50?'...':''}"</a><br>`;
+  html += `<a href="https://www.google.com/search?q=${qElaws}" target="_blank">📋 Search Ontario e-Laws</a><br>`;
+  html += `<a href="https://www.google.com/search?q=${qForms}" target="_blank">📄 Search Ontario Court Forms</a><br>`;
+  html += `<a href="https://www.google.com/search?q=${qGoogle}" target="_blank">🌐 Search all trusted Ontario legal sources</a>`;
+  if(area){
+    html += `<br><a href="https://www.canlii.org/en/#search/text=${encodeURIComponent(area.canlii)}" target="_blank">📂 Browse all ${area.area} cases on CanLII</a>`;
+  }
+  html += `<br><br><b>CanLII search tips:</b> Put key phrases in "quotes" for exact matches. Filter results to Ontario courts. Click "Citing cases" on any result to find similar decisions.<br><br>`;
+  html += `<small style="color:var(--muted)">Legal information only — not legal advice. Verify all sources before filing.</small>`;
+  return html;
+}
+
+function getAreaContext(areaName){
+  const ctx = {
+    'Estate & Probate': 'Estate matters involve executor/trustee duties, passing of accounts, will validity, and beneficiary rights. The estate trustee must account for all estate assets. If records are withheld, a court application for production can be brought.',
+    'Family Law': 'Ontario family law covers divorce, custody and parenting time, child support (Federal Child Support Guidelines), spousal support (SSAG), and property division (equalization of net family property under the Family Law Act). The test for custody is always the best interests of the child.',
+    'Civil Litigation': 'Civil litigation in Ontario covers breach of contract, negligence, debt, and other private disputes. The limitation period is generally 2 years from discovery. Claims over $35,000 go to Superior Court; under $35,000 go to Small Claims Court.',
+    'Employment Law': 'Ontario employment law has two layers: the Employment Standards Act (ESA) sets minimum standards, while common law provides greater "reasonable notice" on dismissal. Wrongful dismissal, constructive dismissal, and human rights complaints are the most common issues.',
+    'Landlord & Tenant': 'Ontario landlord and tenant matters are governed by the Residential Tenancies Act, 2006 and heard by the Landlord and Tenant Board (LTB). Landlords must follow the proper notice and hearing process before eviction. Tenants have strong protections against illegal eviction, harassment, and poor maintenance.',
+    'Small Claims': 'Small Claims Court in Ontario handles money claims up to $35,000. The process is designed for self-represented parties. You file a Plaintiff\'s Claim (Form 7A), the defendant has 20 days to respond, and the matter proceeds to a settlement conference and then trial.',
+    'Immigration': 'Canadian immigration is governed by IRPA. Decisions can be appealed to the IAD or RAD, or challenged in Federal Court by judicial review. Humanitarian and compassionate applications (s.25 IRPA) are available for compelling circumstances.',
+    'Criminal / Regulatory': 'Criminal matters in Canada are governed by the Criminal Code. You have the right to counsel (s.10(b) Charter), the right to silence, and the presumption of innocence. If you have been charged, contact a criminal defence lawyer immediately.',
+    'Human Rights': 'The Ontario Human Rights Code prohibits discrimination and harassment on protected grounds in employment, housing, and services. File applications with the Human Rights Tribunal of Ontario (HRTO) within 1 year of the last incident.',
+    'Administrative / Regulatory': 'Administrative law governs decisions made by government bodies, tribunals, and boards. Judicial review in Ontario courts or the Federal Court can challenge unreasonable or procedurally unfair government decisions.',
+  };
+  return ctx[areaName] || 'Research the applicable statute on Ontario e-Laws and find relevant cases on CanLII. Always check the current version of any statute before relying on it.';
+}
+
+function chatRespond(text){
+  chatBotMsg(buildAnswer(text, true));
+}
+
+// ─── ASK ANYTHING PANEL ──────────────────────────────────────────────────────
+function askAddMsg(html, isUser){
+  const history = document.getElementById('askHistory');
+  const div = document.createElement('div');
+  div.style.cssText = isUser
+    ? 'align-self:flex-end;background:var(--brand);color:#fff;padding:.65rem .9rem;border-radius:.85rem .85rem .15rem .85rem;max-width:85%;font-size:.93rem;line-height:1.5'
+    : 'align-self:flex-start;background:#fff;border:1px solid var(--line);padding:.75rem 1rem;border-radius:.85rem .85rem .85rem .15rem;max-width:95%;font-size:.93rem;line-height:1.6;box-shadow:0 2px 8px rgba(23,63,77,.06)';
+  div.innerHTML = isUser ? html.replace(/</g,'&lt;').replace(/>/g,'&gt;') : html;
+  history.appendChild(div);
+  history.scrollTop = history.scrollHeight;
+}
+
+function askRespond(text){
+  askAddMsg(buildAnswer(text, false), false);
+}
+
+function askSubmit(){
+  const input = document.getElementById('askInput');
+  const text = input.value.trim();
+  if(!text) return;
+  input.value = '';
+  input.style.height = 'auto';
+  askAddMsg(text, true);
+  setTimeout(()=>askRespond(text), 280);
+}
+
+function askQuick(text){
+  document.getElementById('askInput').value = '';
+  askAddMsg(text, true);
+  setTimeout(()=>askRespond(text), 280);
+}
+
+// ─── INIT ─────────────────────────────────────────────────────────────────────
+setPractice('estate');
+
+// Allow Enter to submit in ask panel (Shift+Enter = new line)
+(function initAskPanel(){
+  const inp = document.getElementById('askInput');
+  if(inp){
+    inp.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' && !e.shiftKey){ e.preventDefault(); askSubmit(); }
+    });
+  }
+  askAddMsg(
+    'Welcome! Ask me <b>anything about Ontario law</b> — type your question and press <b>Ask</b> or hit <b>Enter</b>.<br><br>' +
+    'I can help with estate & probate, family law, civil litigation, employment, landlord & tenant, small claims, court forms, procedures, CanLII research, statutes, rights, and more.<br><br>' +
+    '<small style="color:var(--muted)">Legal information only — not legal advice.</small>',
+    false
+  );
+})();
+</script>
+
+<!-- FLOATING CHAT WIDGET -->
+<button id="chatBtn" onclick="toggleChat()" title="Ask a legal question">💬</button>
+<div id="chatPanel">
+  <div id="chatHeader">
+    <div>Ontario Legal Assistant <span>Free legal information — not legal advice</span></div>
+    <button id="chatCloseBtn" onclick="toggleChat()">✕</button>
+  </div>
+  <div id="chatMessages"></div>
+  <div id="chatInputRow">
+    <input id="chatInput" placeholder="Ask anything about Ontario law..." onkeydown="if(event.key==='Enter')chatSend()">
+    <button id="chatSendBtn" onclick="chatSend()">Send</button>
+  </div>
+</div>
+
+</body>
+</html>
